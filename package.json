@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "mocha": "^3.2.0"
+  },
+  "name": "epochtalk-api-tests",
+  "version": "1.0.0",
+  "description": "For testing EpochTalk's API",
+  "main": "index.js",
+  "devDependencies": {
+    "mocha": "^3.2.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC"
+}
