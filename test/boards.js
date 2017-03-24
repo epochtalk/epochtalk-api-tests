@@ -1,5 +1,5 @@
 var path = require('path');
-var config = require(path.join(__dirname, 'config'));
+var config = require(path.join(__dirname, '..', 'config'));
 var chakram = require('chakram'), expect = chakram.expect;
 
 var routes = {
