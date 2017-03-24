@@ -12,7 +12,7 @@
     "mocha": "^3.2.0"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "node_modules/mocha/bin/mocha index.js"
   },
   "author": "",
   "license": "ISC"
