@@ -15,5 +15,16 @@
     "test": "node_modules/mocha/bin/mocha index.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/epochtalk/epochtalk-api-tests.git"
+  },
+  "bugs": {
+    "url": "https://github.com/epochtalk/epochtalk-api-tests/issues"
+  },
+  "homepage": "https://github.com/epochtalk/epochtalk-api-tests#readme"
 }
