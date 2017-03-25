@@ -32,8 +32,8 @@ var utilityRoutes = {
   }
 };
 
-describe("Auth", function() {
-  it("logs in a user", function() {
+describe("Auth Admin Login", function() {
+  it("logs in as admin", function() {
     return chakram.post(routes.login.path, utils.admin.credentials)
     .then(function(response) {
       expect(response).to.have.status(200);
@@ -53,6 +53,9 @@ describe("Auth", function() {
       expect(id).to.be.a.string;
     });
   });
+});
+
+describe("Auth Registration", function() {
   it("register a user", function () {
     return chakram.post(routes.register.path, routes.register.data)
     .then(function(response) {
