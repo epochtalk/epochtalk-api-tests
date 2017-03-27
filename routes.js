@@ -29,5 +29,11 @@ var routes = module.exports = {
       method: 'GET',
       path: `${root}/api/users`
     }
+  },
+  boards: {
+    allCategories: {
+      method: 'GET',
+      path: `${root}/api/boards`
+    }
   }
 };

@@ -1,17 +1,10 @@
 var path = require('path');
-var config = require(path.join(__dirname, '..', 'config'));
+var routes = require(path.join(__dirname, '..', 'routes'));
 var chakram = require('chakram'), expect = chakram.expect;
-
-var routes = {
-  allCategories: {
-    method: 'GET',
-    path: config.host + 'api/boards'
-  }
-};
 
 describe("[public] Boards", function() {
   it("should return all boards", function () {
-    return chakram.get(routes.allCategories.path)
+    return chakram.get(routes.boards.allCategories.path)
     .then(function(response) {
       var body = response.body;
       // check the boards
