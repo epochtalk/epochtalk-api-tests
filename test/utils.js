@@ -1,6 +1,8 @@
 var chakram = require('chakram');
 var path = require('path');
-var config = require(path.join(__dirname, '..', 'config'));
+var routes = require(path.join(__dirname, '..', 'routes'));
+var methods = require(path.join(__dirname, '..', 'methods'));
+var users = methods.users;
 
 var utils = module.exports = {
   admin: {
@@ -12,32 +14,9 @@ var utils = module.exports = {
 
 utils.deleteUser = function(username) {
   var pre = [
-    utilRoutes.getAdminLogin(),
-    utilRoutes.findUser(username)
+    methods.auth.login(utils.admin.username, utils.admin.password),
+    methods.users.find(username)
   ];
   return chakram.all(pre)
-  .spread(utilRoutes.deleteUser);
-};
-
-var utilRoutes = {
-  getAdminLogin: function() {
-    return chakram.post(`${config.host}api/login`, utils.admin.credentials)
-    .then(function(response) {
-      return response.body.token;
-    });
-  },
-  deleteUser: function(adminToken, userId) {
-    var params = {
-      headers: {
-        'Authorization': `BEARER ${adminToken}`
-      }
-    };
-    return chakram.delete(`${config.host}api/users/${userId}`, {}, params);
-  },
-  findUser: function(username) {
-    return chakram.get(`${config.host}api/users/${username}`)
-    .then(function(response) {
-      return response.body.id;
-    });
-  }
+  .spread(methods.users.delete);
 };
