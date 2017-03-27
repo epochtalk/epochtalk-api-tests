@@ -11,8 +11,23 @@ Assumptions
 The tests assume that the server starts off clean, with just an admin account
 seeded.  Admin account should have password `password`
 
-[test/index.js](test/index.js)
------------------------------
+Structure
+---------
+
+### [test/index.js](test/index.js)
 
 Tests paths are defined here.  The top level index will use these paths to
 require tests in a particular order.
+
+### [routes.js](routes.js)
+
+Contains configurations for api routes.
+
+### [methods.js](methods.js)
+
+Exposes routes as Node functions.
+
+### [utils.js](utils.js)
+
+Contains convenience functions that use routes to do things, which are not
+specifically accomplished by exposing methods.
