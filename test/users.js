@@ -3,42 +3,12 @@ var utils = require(path.join(__dirname, 'utils'));
 var config = require(path.join(__dirname, '..', 'config'));
 var chakram = require('chakram'), expect = chakram.expect;
 
-var routes = {
-  allCategories: {
-    method: 'GET',
-    path: config.host + 'api/boards'
-  },
-  login: {
-    method: 'POST',
-    path: config.host + 'api/login'
-  },
-  register: {
-    method: 'POST',
-    path: config.host + 'api/register',
-    data: {
-      username: 'user',
-      email: 'test@epochtalk.com',
-      password: 'password',
-      confirmation: 'password'
-    }
-  }
-};
-
-var utilityRoutes = {
-  deleteUser: {
-    method: 'DELETE',
-    path: config.host + 'api/users'
-  },
-  findTestUser: {
-    method: 'GET',
-    path: `${config.host}api/users/user`
-  }
-};
+var routes = require(path.join(__dirname, '..', 'routes'));
 
 describe("User Delete", function() {
   // create the user to delete
   before(function() {
-    return chakram.post(routes.register.path, routes.register.data)
+    return chakram.post(routes.auth.register.path, routes.auth.register.data)
     .then(function(response) {
       expect(response).to.have.status(200);
 
@@ -64,8 +34,8 @@ describe("User Delete", function() {
   it("deletes a user", function () {
     // log in with admin account and get created user id
     var todo = [
-      chakram.post(routes.login.path, utils.admin.credentials),
-      chakram.get(utilityRoutes.findTestUser.path)
+      chakram.post(routes.auth.login.path, utils.admin.credentials),
+      chakram.get(`${routes.users.find.path}/${routes.auth.register.data.username}`)
     ];
     return chakram.all(todo)
     .spread(function(adminResponse, userResponse) {
@@ -84,7 +54,7 @@ describe("User Delete", function() {
           'Authorization': `BEARER ${adminToken}`
         }
       };
-      return chakram.delete(`${utilityRoutes.deleteUser.path}/${userId}`, {}, params);
+      return chakram.delete(`${routes.users.deleteUser.path}/${userId}`, {}, params);
     })
     .then(function(response) {
       expect(response).to.have.status(200);
@@ -95,10 +65,10 @@ describe("User Delete", function() {
       expect(response.body).to.have.property('email');
 
       var username = body.username;
-      expect(username).to.equal(routes.register.data.username);
+      expect(username).to.equal(routes.auth.register.data.username);
 
       var email = body.email;
-      expect(email).to.equal(routes.register.data.email);
+      expect(email).to.equal(routes.auth.register.data.email);
     });
   });
 });
