@@ -27,7 +27,6 @@ var utilRoutes = {
     });
   },
   deleteUser: function(adminToken, userId) {
-    console.log(adminToken, userId);
     var params = {
       headers: {
         'Authorization': `BEARER ${adminToken}`
