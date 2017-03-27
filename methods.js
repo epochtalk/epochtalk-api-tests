@@ -1,7 +1,6 @@
 var path = require('path');
 var chakram = require('chakram');
 var routes = require(path.join(__dirname, 'routes'));
-var utils = require(path.join(__dirname, 'test', 'utils'));
 
 module.exports = {
   auth: {
