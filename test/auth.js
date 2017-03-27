@@ -56,7 +56,7 @@ describe("Auth Admin Login", function() {
 });
 
 describe("Auth Registration", function() {
-  it("register a user", function () {
+  it("registers a user", function () {
     return chakram.post(routes.register.path, routes.register.data)
     .then(function(response) {
       expect(response).to.have.status(200);
