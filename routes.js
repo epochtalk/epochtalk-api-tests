@@ -19,7 +19,7 @@ var routes = module.exports = {
     }
   },
   users: {
-    deleteUser: {
+    delete: {
       method: 'DELETE',
       path: config.host + 'api/users'
     },

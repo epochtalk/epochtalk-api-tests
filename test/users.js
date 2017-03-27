@@ -54,7 +54,7 @@ describe("User Delete", function() {
           'Authorization': `BEARER ${adminToken}`
         }
       };
-      return chakram.delete(`${routes.users.deleteUser.path}/${userId}`, {}, params);
+      return chakram.delete(`${routes.users.delete.path}/${userId}`, {}, params);
     })
     .then(function(response) {
       expect(response).to.have.status(200);
