@@ -1,40 +1,12 @@
 var path = require('path');
-var config = require(path.join(__dirname, '..', 'config'));
 var chakram = require('chakram'), expect = chakram.expect;
 
 var utils = require(path.join(__dirname, 'utils'));
-
-var routes = {
-  register: {
-    method: 'POST',
-    path: config.host + 'api/register',
-    data: {
-      username: 'user',
-      email: 'test@epochtalk.com',
-      password: 'password',
-      confirmation: 'password'
-    }
-  },
-  login: {
-    method: 'POST',
-    path: config.host + 'api/login'
-  }
-};
-
-var utilityRoutes = {
-  deleteUser: {
-    method: 'DELETE',
-    path: config.host + 'api/users'
-  },
-  findTestUser: {
-    method: 'GET',
-    path: `${config.host}api/users/user`
-  }
-};
+var routes = require(path.join(__dirname, '..', 'routes'));
 
 describe("Auth Admin Login", function() {
   it("logs in as admin", function() {
-    return chakram.post(routes.login.path, utils.admin.credentials)
+    return chakram.post(routes.auth.login.path, utils.admin.credentials)
     .then(function(response) {
       expect(response).to.have.status(200);
 
@@ -57,7 +29,7 @@ describe("Auth Admin Login", function() {
 
 describe("Auth Registration", function() {
   it("registers a user", function () {
-    return chakram.post(routes.register.path, routes.register.data)
+    return chakram.post(routes.auth.register.path, routes.auth.register.data)
     .then(function(response) {
       expect(response).to.have.status(200);
 
