@@ -80,6 +80,9 @@ describe("Auth Registration", function() {
       expect(avatar).to.be.an.array;
     });
   });
+});
+
+describe("User Delete", function() {
   it("deletes a user", function () {
     // log in with admin account and get created user id
     var todo = [
