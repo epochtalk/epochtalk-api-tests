@@ -1,5 +1,5 @@
 var path = require('path');
-var utils = require(path.join(__dirname, 'utils'));
+var utils = require(path.join(__dirname, '..', 'utils'));
 var config = require(path.join(__dirname, '..', 'config'));
 var chakram = require('chakram'), expect = chakram.expect;
 

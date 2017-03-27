@@ -1,7 +1,7 @@
 var path = require('path');
 var chakram = require('chakram'), expect = chakram.expect;
 
-var utils = require(path.join(__dirname, 'utils'));
+var utils = require(path.join(__dirname, '..', 'utils'));
 var routes = require(path.join(__dirname, '..', 'routes'));
 
 describe("Auth Admin Login", function() {
