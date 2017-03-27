@@ -1,9 +1,23 @@
 Tentative run scheme
 ====================
 
-`npm test` runs all tests defined in [index.js](index.js) ordered by `require()`;
 
-The tests are run by `mocha` (`node_modules/mocha/bin/mocha`).
+Configuration
+-------------
+
+```
+cp example.env .env
+```
+
+.env
+```
+HOST=http://localhost:8080
+```
+
+Running tests
+-------------
+
+`npm test`
 
 Assumptions
 -----------
@@ -13,6 +27,13 @@ seeded.  Admin account should have password `password`
 
 Structure
 ---------
+
+The tests are run by `mocha` (`node_modules/mocha/bin/mocha`) and written using
+[chakram](https://dareid.github.io/chakram/) methods and assertions.
+
+### [index.js](index.js)
+
+Specifies the tests to run, and the order in which to run them.
 
 ### [test/index.js](test/index.js)
 
