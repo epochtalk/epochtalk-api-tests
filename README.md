@@ -29,5 +29,5 @@ Exposes routes as Node functions.
 
 ### [utils.js](utils.js)
 
-Contains convenience functions that use routes to do things, which are not
-specifically accomplished by exposing methods.
+Contains convenience functions that use routes to do things, which are useful for
+tests, but not necessarily accomplished by the exposed functions in `methods.js`.
