@@ -23,9 +23,9 @@ var routes = module.exports = {
       method: 'DELETE',
       path: config.host + 'api/users'
     },
-    findTestUser: {
+    find: {
       method: 'GET',
-      path: `${config.host}api/users/user`
+      path: `${config.host}api/users`
     }
   }
 };
