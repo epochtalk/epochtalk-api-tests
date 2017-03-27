@@ -80,4 +80,7 @@ describe("Auth Registration", function() {
       expect(avatar).to.be.an.array;
     });
   });
+  after(function() {
+    return utils.deleteUser('user');
+  });
 });
