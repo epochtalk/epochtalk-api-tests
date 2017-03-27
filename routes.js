@@ -1,11 +1,13 @@
 var path = require('path');
 var config = require(path.join(__dirname, 'config'));
 
+var root = config.host;
+
 var routes = module.exports = {
   auth: {
     register: {
       method: 'POST',
-      path: config.host + 'api/register',
+      path: `${root}/api/register`,
       data: {
         username: 'user',
         email: 'test@epochtalk.com',
@@ -15,17 +17,17 @@ var routes = module.exports = {
     },
     login: {
       method: 'POST',
-      path: config.host + 'api/login'
+      path: `${root}/api/login`
     }
   },
   users: {
     delete: {
       method: 'DELETE',
-      path: config.host + 'api/users'
+      path: `${root}/api/users`
     },
     find: {
       method: 'GET',
-      path: `${config.host}api/users`
+      path: `${root}/api/users`
     }
   }
 };
