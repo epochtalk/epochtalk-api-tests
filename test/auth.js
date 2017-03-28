@@ -2,7 +2,6 @@ var path = require('path');
 var chakram = require('chakram'), expect = chakram.expect;
 
 var utils = require(path.join(__dirname, '..', 'utils'));
-var routes = require(path.join(__dirname, '..', 'routes'));
 var methods = require(path.join(__dirname, '..', 'methods'));
 var auth = methods.auth;
 
