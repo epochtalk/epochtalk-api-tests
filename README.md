@@ -46,9 +46,28 @@ Contains configurations for api routes.
 
 ### [methods.js](methods.js)
 
-Exposes routes as Node functions.
+Exposes routes as Node functions by calling [chakram module methods](https://dareid.github.io/chakram/jsdoc/module-chakram.html)
+
+(ie. `chakram.post` `chakram.get` ... etc.)
 
 ### [utils.js](utils.js)
 
 Contains convenience functions that use routes to do things, which are useful for
 tests, but not necessarily accomplished by the exposed functions in `methods.js`.
+
+Writing tests
+-------------
+
+This testing suite is set up with [yeoman's testing guidelines](http://yeoman.io/contributing/testing-guidelines.html)
+in mind.
+
+Generally speaking...
+
+Write the routes in [routes.js](routes.js).  Expose the routes as Node functions
+in [methods.js](methods.js).  Tests go in the [test](test) directory and require
+`../methods.js` to call routes as Node functions.  Tests also require `chakram`
+to do assertions.
+
+Each `describe` test checks one behaviour, with any required setup done in a
+`before` clause, then descriptions in `it` clauses, followed by cleanup in
+`after` clauses.
