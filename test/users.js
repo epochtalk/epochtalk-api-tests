@@ -3,9 +3,9 @@ var utils = require(path.join(__dirname, '..', 'utils'));
 var config = require(path.join(__dirname, '..', 'config'));
 var chakram = require('chakram'), expect = chakram.expect;
 
-var routes = require(path.join(__dirname, '..', 'routes'));
 var methods = require(path.join(__dirname, '..', 'methods'));
 var auth = methods.auth;
+var users = methods.users;
 
 describe("User Delete", function() {
   var userInfo = {
@@ -22,8 +22,8 @@ describe("User Delete", function() {
   it("deletes a user", function () {
     // log in with admin account and get created user id
     var todo = [
-      chakram.post(routes.auth.login.path, utils.admin.credentials),
-      chakram.get(`${routes.users.find.path}/${userInfo.username}`)
+      auth.login(utils.admin.username, utils.admin.password),
+      users.find(userInfo.username)
     ];
     return chakram.all(todo)
     .spread(function(adminResponse, userResponse) {
@@ -37,12 +37,7 @@ describe("User Delete", function() {
       expect(userResponse.body).to.have.property('id');
       var userId = userResponse.body.id;
 
-      var params = {
-        headers: {
-          'Authorization': `BEARER ${adminToken}`
-        }
-      };
-      return chakram.delete(`${routes.users.delete.path}/${userId}`, {}, params);
+      return users.delete(adminToken, userId);
     })
     .then(function(response) {
       expect(response).to.have.status(200);
