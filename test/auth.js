@@ -41,3 +41,39 @@ describe("Auth Registration", function() {
     return utils.deleteUser(userInfo.username);
   });
 });
+
+describe("Auth Login", function() {
+  var userInfo = {
+    username: 'user',
+    email: 'test@epochtalk.com',
+    password: 'password',
+    confirmation: 'password'
+  };
+
+  before("register a user", function() {
+    return auth.register(userInfo.username, userInfo.email, userInfo.password, userInfo.confirmation);
+  });
+  it("logs in", function() {
+    return auth.login(userInfo.username, userInfo.password)
+    .then(function(response) {
+      expect(response).to.have.status(200);
+
+      var body = response.body;
+      expect(body).to.have.property('token');
+      expect(body).to.have.property('username');
+      expect(body).to.have.property('id');
+
+      var token = body.token;
+      expect(token).to.be.a.string;
+
+      var username = body.username;
+      expect(username).to.be.equal(userInfo.username);
+
+      var id = body.id;
+      expect(id).to.be.a.string;
+    });
+  });
+  after("delete created user", function() {
+    return utils.deleteUser(userInfo.username);
+  });
+});
