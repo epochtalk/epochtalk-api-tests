@@ -77,3 +77,43 @@ describe("Auth Login", function() {
     return utils.deleteUser(userInfo.username);
   });
 });
+
+describe("Auth Username Availability", function() {
+  var userInfo = {
+    username: 'user',
+    email: 'test@epochtalk.com',
+    password: 'password',
+    confirmation: 'password'
+  };
+
+  before("register a user", function() {
+    return auth.register(userInfo.username, userInfo.email, userInfo.password, userInfo.confirmation);
+  });
+  it("checks if a username is available", function () {
+    return auth.checkUsernameAvailability('otherusername')
+    .then(function(response) {
+      expect(response).to.have.status(200);
+
+      var body = response.body;
+      expect(body).to.have.property('found');
+
+      var found = response.body.found;
+      expect(found).to.be.false;
+    });
+  });
+  it("checks if a username is unavailable", function () {
+    return auth.checkUsernameAvailability(userInfo.username)
+    .then(function(response) {
+      expect(response).to.have.status(200);
+
+      var body = response.body;
+      expect(body).to.have.property('found');
+
+      var found = response.body.found;
+      expect(found).to.be.true;
+    });
+  });
+  after("delete created user", function() {
+    return utils.deleteUser(userInfo.username);
+  });
+});
