@@ -18,10 +18,7 @@ module.exports = {
       return chakram.delete(`${routes.users.delete.path}/${userId}`, {}, params);
     },
     find: function(username) {
-      return chakram.get(`${routes.users.find.path}/${username}`)
-      .then(function(response) {
-        return response.body.id;
-      });
+      return chakram.get(`${routes.users.find.path}/${username}`);
     }
   }
 };
