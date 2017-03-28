@@ -7,13 +7,7 @@ var routes = module.exports = {
   auth: {
     register: {
       method: 'POST',
-      path: `${root}/api/register`,
-      data: {
-        username: 'user',
-        email: 'test@epochtalk.com',
-        password: 'password',
-        confirmation: 'password'
-      }
+      path: `${root}/api/register`
     },
     login: {
       method: 'POST',
