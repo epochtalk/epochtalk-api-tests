@@ -1,14 +1,15 @@
 var path = require('path');
 var chakram = require('chakram');
-var routes = require(path.join(__dirname, 'routes'));
+var config = require(path.join(__dirname, 'config'));
+var root = config.host;
 
 module.exports = {
   auth: {
     register: function(username, email, password, confirmation) {
-      return chakram.post(`${routes.auth.register.path}`, { username, email, password, confirmation });
+      return chakram.post(`${root}/api/register`, { username, email, password, confirmation });
     },
     login: function(username, password) {
-      return chakram.post(`${routes.auth.login.path}`, { username, password });
+      return chakram.post(`${root}/api/login`, { username, password });
     }
   },
   users: {
@@ -18,15 +19,15 @@ module.exports = {
           'Authorization': `BEARER ${adminToken}`
         }
       };
-      return chakram.delete(`${routes.users.delete.path}/${userId}`, {}, params);
+      return chakram.delete(`${root}/api/users/${userId}`, {}, params);
     },
     find: function(username) {
-      return chakram.get(`${routes.users.find.path}/${username}`);
+      return chakram.get(`${root}/api/users/${username}`);
     }
   },
   boards: {
     allCategories: function() {
-      return chakram.get(`${routes.boards.allCategories.path}`);
+      return chakram.get(`${root}/api/boards`);
     }
   }
 };
