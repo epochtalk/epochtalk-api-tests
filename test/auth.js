@@ -3,10 +3,12 @@ var chakram = require('chakram'), expect = chakram.expect;
 
 var utils = require(path.join(__dirname, '..', 'utils'));
 var routes = require(path.join(__dirname, '..', 'routes'));
+var methods = require(path.join(__dirname, '..', 'methods'));
+var auth = methods.auth;
 
 describe("Auth Admin Login", function() {
   it("logs in as admin", function() {
-    return chakram.post(routes.auth.login.path, utils.admin.credentials)
+    return auth.login(utils.admin.username, utils.admin.password)
     .then(function(response) {
       expect(response).to.have.status(200);
 
@@ -28,8 +30,15 @@ describe("Auth Admin Login", function() {
 });
 
 describe("Auth Registration", function() {
+  var userInfo = {
+    username: 'user',
+    email: 'test@epochtalk.com',
+    password: 'password',
+    confirmation: 'password'
+  };
+
   it("registers a user", function () {
-    return chakram.post(routes.auth.register.path, routes.auth.register.data)
+    return auth.register(userInfo.username, userInfo.email, userInfo.password, userInfo.confirmation)
     .then(function(response) {
       expect(response).to.have.status(200);
 
@@ -53,6 +62,6 @@ describe("Auth Registration", function() {
     });
   });
   after(function() {
-    return utils.deleteUser('user');
+    return utils.deleteUser(userInfo.username);
   });
 });
