@@ -11,6 +11,10 @@ var utils = module.exports = {
   }
 };
 
+utils.sudo = function() {
+  return methods.auth.login(utils.admin.username, utils.admin.password);
+};
+
 utils.deleteUser = function(username) {
   var pre = [
     methods.auth.login(utils.admin.username, utils.admin.password)
