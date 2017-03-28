@@ -5,10 +5,7 @@ var routes = require(path.join(__dirname, 'routes'));
 module.exports = {
   auth: {
     login: function(username, password) {
-      return chakram.post(`${routes.auth.login.path}`, { username, password })
-      .then(function(response) {
-        return response.body.token;
-      });
+      return chakram.post(`${routes.auth.login.path}`, { username, password });
     }
   },
   users: {

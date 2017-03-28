@@ -14,7 +14,8 @@ var utils = module.exports = {
 
 utils.deleteUser = function(username) {
   var pre = [
-    methods.auth.login(utils.admin.username, utils.admin.password),
+    methods.auth.login(utils.admin.username, utils.admin.password)
+    .then((response) => response.body.token),
     methods.users.find(username)
   ];
   return chakram.all(pre)
