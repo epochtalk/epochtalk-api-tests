@@ -1,6 +1,5 @@
 var chakram = require('chakram');
 var path = require('path');
-var routes = require(path.join(__dirname, 'routes'));
 var methods = require(path.join(__dirname, 'methods'));
 var users = methods.users;
 
