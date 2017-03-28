@@ -60,7 +60,7 @@ describe("Auth Registration", function() {
       expect(avatar).to.be.an.array;
     });
   });
-  after(function() {
+  after("delete created user", function() {
     return utils.deleteUser(userInfo.username);
   });
 });

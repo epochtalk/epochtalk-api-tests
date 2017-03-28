@@ -15,8 +15,7 @@ describe("User Delete", function() {
     confirmation: 'password'
   };
 
-  // create the user to delete
-  before(function() {
+  before("create the user to delete", function() {
     return auth.register(userInfo.username, userInfo.email, userInfo.password, userInfo.confirmation);
   });
   it("deletes a user", function () {
