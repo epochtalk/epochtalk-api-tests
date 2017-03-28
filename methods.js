@@ -23,5 +23,10 @@ module.exports = {
     find: function(username) {
       return chakram.get(`${routes.users.find.path}/${username}`);
     }
+  },
+  boards: {
+    allCategories: function() {
+      return chakram.get(`${routes.boards.allCategories.path}`);
+    }
   }
 };
