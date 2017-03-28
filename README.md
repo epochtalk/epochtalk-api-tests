@@ -40,10 +40,6 @@ Specifies the tests to run, and the order in which to run them.
 Tests paths are defined here.  The top level index will use these paths to
 require tests in a particular order.
 
-### [routes.js](routes.js)
-
-Contains configurations for api routes.
-
 ### [methods.js](methods.js)
 
 Exposes routes as Node functions by calling [chakram module methods](https://dareid.github.io/chakram/jsdoc/module-chakram.html)
@@ -52,8 +48,9 @@ Exposes routes as Node functions by calling [chakram module methods](https://dar
 
 ### [utils.js](utils.js)
 
-Contains convenience functions that use routes to do things, which are useful for
-tests, but not necessarily accomplished by the exposed functions in `methods.js`.
+Contains convenience functions that use methods to perform operations, which are
+useful for tests, but not necessarily accomplished by the exposed functions in
+`methods.js`.
 
 Writing tests
 -------------
@@ -63,10 +60,9 @@ in mind.
 
 Generally speaking...
 
-Write the routes in [routes.js](routes.js).  Expose the routes as Node functions
-in [methods.js](methods.js).  Tests go in the [test](test) directory and require
-`../methods.js` to call routes as Node functions.  Tests also require `chakram`
-to do assertions.
+Expose the necessary api routes as Node functions in [methods.js](methods.js).
+Tests go in the [test](test) directory and require `../methods.js` to call routes
+as Node functions.  Tests also require `chakram` to do assertions.
 
 Each `describe` test checks one behaviour, with any required setup done in a
 `before` clause, then descriptions in `it` clauses, followed by cleanup in
