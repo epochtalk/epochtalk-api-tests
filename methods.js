@@ -29,6 +29,28 @@ module.exports = {
     }
   },
   boards: {
+    create: function(options) {
+      var data = options.boards;
+      var params = {};
+      if (options.adminToken) {
+        params.headers = {
+          'Authorization': `BEARER ${options.adminToken}`
+        };
+      }
+      return chakram.post(`${root}/api/boards`, data, params);
+    },
+    delete: function(options) {
+      var data = {
+        id: options.id
+      };
+      var params = {};
+      if (options.adminToken) {
+        params.headers = {
+          'Authorization': `BEARER ${options.adminToken}`
+        };
+      }
+      return chakram.delete(`${root}/api/boards`, data, params);
+    },
     allCategories: function() {
       return chakram.get(`${root}/api/boards`);
     }
