@@ -1,6 +1,7 @@
 var path = require('path');
 var chakram = require('chakram'), expect = chakram.expect;
 
+var utils = require(path.join(__dirname, '..', 'utils'));
 var methods = require(path.join(__dirname, '..', 'methods'));
 var boards = methods.boards;
 
@@ -18,6 +19,59 @@ describe("[public] Boards", function() {
       expect(body).to.have.property('threads');
       expect(body.threads).to.be.an.array;
       expect(body.threads).to.have.length(0);
+    });
+  });
+});
+
+describe("Boards Creation", function() {
+  var boardInfo = {
+    name: 'Are you Board?',
+    description: 'A board for bored people'
+  };
+  it("should create a board", function () {
+    return utils.sudo().then(function(response) {
+      var options = {
+        adminToken: response.body.token,
+        boards: [
+          {
+            name: boardInfo.name,
+            description: boardInfo.description,
+            viewable_by: boardInfo.viewable_by,
+            postable_by: boardInfo.postable_by,
+          }
+        ]
+      }
+      return boards.create(options);
+    })
+    .then(function(response) {
+      expect(response).to.have.status(200);
+
+      var boards = response.body;
+      expect(boards).to.have.length(1);
+
+      var board = boards[0];
+      expect(board).to.have.property('id');
+      expect(board).to.have.property('name');
+      expect(board).to.have.property('description');
+
+      var id = board.id;
+      expect(id).to.be.a.string;
+      boardInfo.id = id;
+
+      var name = board.name;
+      expect(name).to.equal(boardInfo.name);
+
+      var description = board.description;
+      expect(description).to.equal(boardInfo.description);
+    });
+  });
+  after("delete the created board", function() {
+    return utils.sudo().then(function(response) {
+      var options = {
+        adminToken: response.body.token,
+        id: boardInfo.id
+      };
+      return boards.delete(options);
     });
   });
 });
