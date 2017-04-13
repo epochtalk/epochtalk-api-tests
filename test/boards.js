@@ -40,7 +40,7 @@ describe("Boards Creation", function() {
             postable_by: boardInfo.postable_by,
           }
         ]
-      }
+      };
       return boards.create(options);
     })
     .then(function(response) {
