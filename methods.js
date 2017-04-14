@@ -47,7 +47,7 @@ module.exports = {
           'Authorization': `BEARER ${options.adminToken}`
         };
       }
-      return chakram.delete(`${root}/api/boards`, data, params);
+      return chakram.post(`${root}/api/boards/delete`, data, params);
     },
     allCategories: function() {
       return chakram.get(`${root}/api/boards`);
