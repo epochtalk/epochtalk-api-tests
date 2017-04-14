@@ -75,3 +75,57 @@ describe("Boards Creation", function() {
     });
   });
 });
+
+describe("Boards Deletion", function() {
+  var boardInfo = {
+    name: 'Are you Board?',
+    description: 'A board for bored people'
+  };
+  before("create the board to delete", function() {
+    return utils.sudo().then(function(response) {
+      var options = {
+        adminToken: response.body.token,
+        boards: [
+          {
+            name: boardInfo.name,
+            description: boardInfo.description,
+            viewable_by: boardInfo.viewable_by,
+            postable_by: boardInfo.postable_by,
+          }
+        ]
+      };
+      return boards.create(options);
+    })
+    .then(function(response) {
+      boardInfo.id = response.body[0].id;
+    });
+  });
+  it("should delete a board", function () {
+    return utils.sudo().then(function(response) {
+      var options = {
+        adminToken: response.body.token,
+        boards: [
+          boardInfo.id
+        ]
+      };
+      return boards.delete(options);
+    })
+    .then(function(response) {
+      expect(response).to.have.status(200);
+
+      var boards = response.body;
+      expect(boards).to.have.length(1);
+
+      var board = boards[0];
+      expect(board).to.have.property('id');
+      expect(board).to.have.property('name');
+
+      var id = board.id;
+      expect(id).to.be.a.string;
+      boardInfo.id = id;
+
+      var name = board.name;
+      expect(name).to.equal(boardInfo.name);
+    });
+  });
+});
