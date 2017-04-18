@@ -50,9 +50,7 @@ describe("Boards Creation", function() {
       expect(boards).to.have.length(1);
 
       var board = boards[0];
-      expect(board).to.have.property('id');
-      expect(board).to.have.property('name');
-      expect(board).to.have.property('description');
+      expect(board).to.have.all.keys(['id', 'name', 'description']);
 
       var id = board.id;
       expect(id).to.be.a.string;
@@ -117,8 +115,7 @@ describe("Boards Deletion", function() {
       expect(boards).to.have.length(1);
 
       var board = boards[0];
-      expect(board).to.have.property('id');
-      expect(board).to.have.property('name');
+      expect(board).to.have.all.keys(['id', 'name']);
 
       var id = board.id;
       expect(id).to.be.a.string;
