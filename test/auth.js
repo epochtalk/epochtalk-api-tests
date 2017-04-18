@@ -19,10 +19,7 @@ describe("Auth Registration", function() {
       expect(response).to.have.status(200);
 
       var body = response.body;
-      expect(body).to.have.property('token');
-      expect(body).to.have.property('id');
-      expect(body).to.have.property('avatar');
-      expect(body).to.have.property('roles');
+      expect(body).to.have.all.keys(['token', 'id', 'avatar', 'roles']);
 
       var token = body.token;
       expect(token).to.be.a.string;
@@ -59,9 +56,7 @@ describe("Auth Login", function() {
       expect(response).to.have.status(200);
 
       var body = response.body;
-      expect(body).to.have.property('token');
-      expect(body).to.have.property('username');
-      expect(body).to.have.property('id');
+      expect(body).to.have.all.keys(['token', 'username', 'id']);
 
       var token = body.token;
       expect(token).to.be.a.string;
@@ -95,7 +90,7 @@ describe("Auth Username Availability", function() {
       expect(response).to.have.status(200);
 
       var body = response.body;
-      expect(body).to.have.property('found');
+      expect(body).to.have.all.keys(['found']);
 
       var found = response.body.found;
       expect(found).to.be.false;
@@ -107,7 +102,7 @@ describe("Auth Username Availability", function() {
       expect(response).to.have.status(200);
 
       var body = response.body;
-      expect(body).to.have.property('found');
+      expect(body).to.have.all.keys(['found']);
 
       var found = response.body.found;
       expect(found).to.be.true;
