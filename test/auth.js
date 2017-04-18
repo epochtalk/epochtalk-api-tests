@@ -56,7 +56,16 @@ describe("Auth Login", function() {
       expect(response).to.have.status(200);
 
       var body = response.body;
-      expect(body).to.have.all.keys(['token', 'username', 'id']);
+      expect(body).to.have.all.keys([
+        'token',
+        'username',
+        'id',
+        'avatar',
+        'malicious_score',
+        'moderating',
+        'permissions',
+        'roles'
+      ]);
 
       var token = body.token;
       expect(token).to.be.a.string;
