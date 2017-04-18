@@ -45,6 +45,19 @@ describe("User Find", function() {
       expect(userId).to.be.a.slugid;
     });
   });
+  it("doesn't find a nonexistant user", function () {
+    return users.find('invalidusername')
+    .then(function(response) {
+      expect(response).to.have.status(404);
+      expect(response).to.have.property('body');
+
+      var body = response.body;
+      expect(response.body).to.have.all.keys(['error', 'statusCode']);
+
+      expect(body.statusCode).to.equal(404);
+      expect(body.error).to.equal('Not Found');
+    });
+  });
   after("delete the created user", function() {
     return utils.sudo().then(function(response) {
       var adminToken = response.body.token;
