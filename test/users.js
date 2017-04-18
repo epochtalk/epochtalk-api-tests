@@ -43,8 +43,7 @@ describe("User Delete", function() {
       expect(response).to.have.property('body');
 
       var body = response.body;
-      expect(response.body).to.have.property('username');
-      expect(response.body).to.have.property('email');
+      expect(response.body).to.have.all.keys(['username', 'email']);
 
       var username = body.username;
       expect(username).to.equal(userInfo.username);
