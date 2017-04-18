@@ -1,11 +1,57 @@
 var path = require('path');
 var utils = require(path.join(__dirname, '..', 'utils'));
 var config = require(path.join(__dirname, '..', 'config'));
-var chakram = require('chakram'), expect = chakram.expect;
+var chakram = require(path.join(__dirname, '..', 'chakram')), expect = chakram.expect;
 
 var methods = require(path.join(__dirname, '..', 'methods'));
 var auth = methods.auth;
 var users = methods.users;
+
+describe("User Find", function() {
+  var userInfo = {
+    username: 'user',
+    email: 'test@epochtalk.com',
+    password: 'password',
+    confirmation: 'password'
+  };
+
+  before("create the user to find", function() {
+    return auth.register(userInfo.username, userInfo.email, userInfo.password, userInfo.confirmation)
+    .then(function(response) {
+      // save the user id for cleanup
+      userInfo.id = response.body.id;
+    });
+  });
+  it("finds a user", function () {
+    return users.find(userInfo.username)
+    .then(function(response) {
+      expect(response).to.have.status(200);
+      expect(response).to.have.property('body');
+
+      var body = response.body;
+      expect(response.body).to.have.all.keys([
+        'activity',
+        'avatar',
+        'created_at',
+        'id',
+        'malicious_score',
+        'priority',
+        'roles',
+        'updated_at',
+        'username'
+      ]);
+
+      var userId = body.id;
+      expect(userId).to.be.a.slugid;
+    });
+  });
+  after("delete the created user", function() {
+    return utils.sudo().then(function(response) {
+      var adminToken = response.body.token;
+      return users.delete(adminToken, userInfo.id);
+    })
+  });
+});
 
 describe("User Delete", function() {
   var userInfo = {
