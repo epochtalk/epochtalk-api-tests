@@ -19,7 +19,7 @@ describe("Auth Registration", function() {
       expect(response).to.have.status(200);
 
       var body = response.body;
-      expect(body).to.have.all.keys(['token', 'id', 'avatar', 'roles']);
+      expect(body).to.have.all.keys(['token', 'id', 'avatar', 'roles', 'permissions', 'username']);
 
       var token = body.token;
       expect(token).to.be.a.string;
