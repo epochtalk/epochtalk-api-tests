@@ -1,5 +1,5 @@
 var path = require('path');
-var chakram = require('chakram'), expect = chakram.expect;
+var chakram = require(path.join(__dirname, '..', 'chakram')), expect = chakram.expect;
 
 var utils = require(path.join(__dirname, '..', 'utils'));
 var methods = require(path.join(__dirname, '..', 'methods'));
@@ -25,7 +25,7 @@ describe("Auth Registration", function() {
       expect(token).to.be.a.string;
 
       var id = body.id;
-      expect(id).to.be.a.string;
+      expect(id).to.be.a.slugid;
 
       var avatar = body.avatar;
       expect(avatar).to.be.a.string;
