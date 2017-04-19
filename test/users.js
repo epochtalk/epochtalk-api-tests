@@ -58,6 +58,20 @@ describe("User Find", function() {
       expect(body.error).to.equal('Not Found');
     });
   });
+  it("doesn't find a crazy user", function () {
+    return users.find('j!@#$%^&*()_=[][}{`~')
+    .then(function(response) {
+      expect(response).to.have.status(404);
+      expect(response).to.have.property('body');
+      console.log('mahnody', response.body);
+
+      var body = response.body;
+      expect(response.body).to.have.all.keys(['error', 'statusCode']);
+
+      expect(body.statusCode).to.equal(404);
+      expect(body.error).to.equal('Not Found');
+    });
+  });
   after("delete the created user", function() {
     return utils.sudo().then(function(response) {
       var adminToken = response.body.token;
