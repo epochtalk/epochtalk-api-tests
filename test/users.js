@@ -124,4 +124,17 @@ describe("User Delete", function() {
       expect(email).to.equal(userInfo.email);
     });
   });
+  it("doesn't find a deleted user", function () {
+    return users.find(userInfo.username)
+    .then(function(response) {
+      expect(response).to.have.status(404);
+      expect(response).to.have.property('body');
+
+      var body = response.body;
+      expect(response.body).to.have.all.keys(['error', 'statusCode']);
+
+      expect(body.statusCode).to.equal(404);
+      expect(body.error).to.equal('Not Found');
+    });
+  });
 });
