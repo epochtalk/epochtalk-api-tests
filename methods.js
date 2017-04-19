@@ -8,6 +8,14 @@ module.exports = {
     register: function(username, email, password, confirmation) {
       return chakram.post(`${root}/api/register`, { username, email, password, confirmation });
     },
+    authenticate: function(token) {
+      var params = {
+        headers: {
+          'Authorization': `BEARER ${token}`
+        }
+      };
+      return chakram.get(`${root}/api/authenticate`, params);
+    },
     checkUsernameAvailability: function(username) {
       return chakram.get(`${root}/api/register/username/${username}`);
     },
