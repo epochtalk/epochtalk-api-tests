@@ -63,7 +63,6 @@ describe("User Find", function() {
     .then(function(response) {
       expect(response).to.have.status(404);
       expect(response).to.have.property('body');
-      console.log('mahnody', response.body);
 
       var body = response.body;
       expect(response.body).to.have.all.keys(['error', 'statusCode']);
