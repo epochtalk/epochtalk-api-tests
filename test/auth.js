@@ -216,6 +216,16 @@ describe("Auth Authenticate", function() {
       expect(token).to.be.a('string');
     });
   });
+  it("checks a user's authentication after logout", function() {
+    return auth.logout(userInfo.token)
+    .then(function() {
+      return auth.authenticate(userInfo.token);
+    })
+    .then(function(response) {
+      console.log(response.body);
+      expect(response).to.have.status(401);
+    });
+  });
   after("delete created user", function() {
     return utils.deleteUser(userInfo.username);
   });
