@@ -222,7 +222,6 @@ describe("Auth Authenticate", function() {
       return auth.authenticate(userInfo.token);
     })
     .then(function(response) {
-      console.log(response.body);
       expect(response).to.have.status(401);
     });
   });
