@@ -19,6 +19,9 @@ module.exports = {
     checkUsernameAvailability: function(username) {
       return chakram.get(`${root}/api/register/username/${username}`);
     },
+    checkEmailAvailability: function(email) {
+      return chakram.get(`${root}/api/register/email/${email}`);
+    },
     login: function(username, password) {
       return chakram.post(`${root}/api/login`, { username, password });
     }
