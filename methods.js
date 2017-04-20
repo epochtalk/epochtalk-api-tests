@@ -22,6 +22,14 @@ module.exports = {
     checkEmailAvailability: function(email) {
       return chakram.get(`${root}/api/register/email/${email}`);
     },
+    logout: function(token) {
+      var params = {
+        headers: {
+          'Authorization': `BEARER ${token}`
+        }
+      };
+      return chakram.delete(`${root}/api/logout`, {}, params);
+    },
     login: function(username, password) {
       return chakram.post(`${root}/api/login`, { username, password });
     }
