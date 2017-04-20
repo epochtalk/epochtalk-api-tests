@@ -171,16 +171,16 @@ describe("Auth Authenticate", function() {
   };
 
   before("register a user", function() {
-    return auth.register(userInfo.username, userInfo.email, userInfo.password, userInfo.confirmation)
-    .then(function() {
-      return auth.login(userInfo.username, userInfo.password);
-    })
+    return auth.register(userInfo.username, userInfo.email, userInfo.password, userInfo.confirmation);
+  });
+  it("checks a user's authentication after login", function() {
+    return auth.login(userInfo.username, userInfo.password)
     .then(function(response) {
       userInfo.token = response.body.token;
-    });
-  });
-  it("checks a user's authentication", function() {
-    return auth.authenticate(userInfo.token)
+    })
+    .then(function() {
+      return auth.authenticate(userInfo.token);
+    })
     .then(function(response) {
       expect(response).to.have.status(200);
 
