@@ -82,6 +82,40 @@ describe("Auth Login", function() {
   });
 });
 
+describe("Auth Logout", function() {
+  var userInfo = {
+    username: 'user',
+    email: 'test@epochtalk.com',
+    password: 'password',
+    confirmation: 'password'
+  };
+
+  before("register a user", function() {
+    return auth.register(userInfo.username, userInfo.email, userInfo.password, userInfo.confirmation)
+    .then(function() {
+      return auth.login(userInfo.username, userInfo.password);
+    })
+    .then(function(response) {
+      userInfo.token = response.body.token;
+    });
+  });
+  it("logs out", function() {
+    return auth.logout(userInfo.token)
+    .then(function(response) {
+      expect(response).to.have.status(200);
+    });
+  });
+  it("doesn't log out again", function() {
+    return auth.logout(userInfo.token)
+    .then(function(response) {
+      expect(response).to.have.status(401);
+    });
+  });
+  after("delete created user", function() {
+    return utils.deleteUser(userInfo.username);
+  });
+});
+
 describe("Auth Username Availability", function() {
   var userInfo = {
     username: 'user',
