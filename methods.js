@@ -71,5 +71,10 @@ module.exports = {
     allCategories: function() {
       return chakram.get(`${root}/api/boards`);
     }
+  },
+  portal: {
+    portal: function() {
+      return chakram.get(`${root}/api/portal`);
+    }
   }
 };
