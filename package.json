@@ -16,6 +16,7 @@
     "mocha": "^3.2.0"
   },
   "scripts": {
+    "email-test": "node_modules/mocha/bin/mocha email-test.js",
     "test": "node_modules/mocha/bin/mocha index.js"
   },
   "author": "",
