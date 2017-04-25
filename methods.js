@@ -44,6 +44,14 @@ module.exports = {
       console.log({ email, token });
       return chakram.post(`${root}/api/invites`, { email }, params);
     },
+    removeInvite: function(email, token) {
+      var params = {
+        headers: {
+          'Authorization': `BEARER ${token}`
+        }
+      };
+      return chakram.post(`${root}/api/invites/remove`, { email }, params);
+    },
     delete: function(adminToken, userId) {
       var params = {
         headers: {
