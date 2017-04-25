@@ -5,6 +5,10 @@ var chakram = require('chakram');
 var config = require(path.join(__dirname, 'config'));
 var root = config.emailerHost;
 
+var MailDev = require('maildev');
+var maildev = new MailDev();
+maildev.listen();
+
 module.exports = {
   getMailForAddress: function(forAddress) {
     return chakram.get(`${root}/email`)
@@ -15,6 +19,13 @@ module.exports = {
         }
         return emails;
       }, []);
+    });
+  },
+  listen: function() {
+    return new Promise(function(resolve, reject) {
+      maildev.on('new', function(email) {
+        return resolve(email);
+      });
     });
   }
 };
