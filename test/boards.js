@@ -1,5 +1,5 @@
 var path = require('path');
-var chakram = require('chakram'), expect = chakram.expect;
+var chakram = require(path.join(__dirname, '..', 'chakram')), expect = chakram.expect;
 
 var utils = require(path.join(__dirname, '..', 'utils'));
 var methods = require(path.join(__dirname, '..', 'methods'));
@@ -53,7 +53,7 @@ describe("Boards Creation", function() {
       expect(board).to.have.all.keys(['id', 'name', 'description']);
 
       var id = board.id;
-      expect(id).to.be.a.string;
+      expect(id).to.be.slugid;
       boardInfo.id = id;
 
       var name = board.name;
