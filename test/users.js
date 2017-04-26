@@ -4,6 +4,15 @@ var utils = require(path.join(__dirname, '..', 'utils'));
 var config = require(path.join(__dirname, '..', 'config'));
 var chakram = require(path.join(__dirname, '..', 'chakram')), expect = chakram.expect;
 
+// Chai expectations
+var chai = require('chai');
+var cheerio = require('cheerio');
+var chaiCheerio = require('chai-cheerio');
+var chaiUrl = require('chai-url');
+chai.use(chaiCheerio);
+chai.use(chaiUrl);
+var chaiExpect = chai.expect;
+
 var methods = require(path.join(__dirname, '..', 'methods'));
 var auth = methods.auth;
 var users = methods.users;
@@ -32,6 +41,15 @@ describe("User Invite", function() {
         'message',
         'confirm_token'
       ]);
+
+      // check email
+      expect(email).to.contain.all.keys([ 'subject', 'from', 'to', 'html' ]);
+      expect(email.subject).to.contain('You\'ve been sent an invitation');
+      expect(email.to).to.have.someProperties({ address: userInfo.email });;
+      var $ = cheerio.load(email.html);
+      chaiExpect($('body a'))
+      .to.have.text('Confirm Account')
+      .and.attr('href').which.contains.path('/join');
     });
   });
   after("remove invite", function() {
