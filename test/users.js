@@ -1,4 +1,5 @@
 var path = require('path');
+var Promise = require('bluebird');
 var utils = require(path.join(__dirname, '..', 'utils'));
 var config = require(path.join(__dirname, '..', 'config'));
 var chakram = require(path.join(__dirname, '..', 'chakram')), expect = chakram.expect;
@@ -6,6 +7,40 @@ var chakram = require(path.join(__dirname, '..', 'chakram')), expect = chakram.e
 var methods = require(path.join(__dirname, '..', 'methods'));
 var auth = methods.auth;
 var users = methods.users;
+var email = require(path.join(__dirname, '..', 'email'));
+
+describe("User Invite", function() {
+  var userInfo = {
+    username: 'user',
+    email: 'test@epochtalk.com',
+    password: 'password',
+    confirmation: 'password'
+  };
+
+  it("Sends an email invitation", function() {
+    return utils.sudo().then(function(response) {
+      var adminToken = response.body.token;
+      return Promise.join(email.listen(), users.invite(userInfo.email, adminToken));
+    })
+    .spread(function(email, response) {
+      // check response
+      expect(response).to.have.status(200);
+      expect(response).to.have.property('body');
+
+      var body = response.body;
+      expect(response.body).to.have.all.keys([
+        'message',
+        'confirm_token'
+      ]);
+    });
+  });
+  after("remove invite", function() {
+    return utils.sudo().then(function(response) {
+      var adminToken = response.body.token;
+      return users.removeInvite(userInfo.email, adminToken);
+    });
+  });
+});
 
 describe("User Find", function() {
   var userInfo = {
