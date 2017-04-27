@@ -42,6 +42,12 @@ describe("User Invite", function() {
         'confirm_token'
       ]);
 
+      var message = body.message;
+      expect(message).to.equal('Successfully Sent Invitation');
+
+      var confirm_token = body.confirm_token;
+      expect(confirm_token).to.be.a('string');
+
       // check email
       expect(email).to.contain.all.keys([ 'subject', 'from', 'to', 'html' ]);
       expect(email.subject).to.contain('You\'ve been sent an invitation');
