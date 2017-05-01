@@ -58,7 +58,7 @@ describe("User Invite", function() {
       .and.attr('href').which.contains.path('/join');
     });
   });
-  after("remove invite", function() {
+  after("Remove invitation", function() {
     return utils.sudo().then(function(response) {
       var adminToken = response.body.token;
       return users.removeInvite(userInfo.email, adminToken);
