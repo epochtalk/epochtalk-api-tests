@@ -76,6 +76,40 @@ describe("User Invite", function() {
   });
 });
 
+describe("User Invitations List (No invitations)", function() {
+  var userInfo = {
+    username: 'user',
+    email: 'test@epochtalk.com',
+    password: 'password',
+    confirmation: 'password'
+  };
+
+  it("Returns an empty list of invitations", function() {
+    return utils.sudo().then(function(response) {
+      var adminToken = response.body.token;
+      return users.invitations({}, adminToken);
+    })
+    .then(function(response) {
+      expect(response).to.have.status(200);
+
+      var body = response.body;
+      expect(body).to.have.all.keys([ 'page', 'limit', 'invitations', 'hasMore' ]);
+
+      var invitations = body.invitations;
+      expect(invitations).to.be.an('array').with.length(0);
+
+      var page = body.page;
+      expect(page).to.equal(1);
+
+      var limit = body.limit;
+      expect(limit).to.equal(25);
+
+      var hasMore = body.hasMore;
+      expect(hasMore).to.equal(false);
+    });
+  });
+});
+
 describe("User Find", function() {
   var userInfo = {
     username: 'user',
