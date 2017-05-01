@@ -1,5 +1,6 @@
 var path = require('path');
 var chakram = require('chakram');
+var queryString = require('query-string');
 var config = require(path.join(__dirname, 'config'));
 var root = config.host;
 
@@ -42,6 +43,15 @@ module.exports = {
         }
       };
       return chakram.post(`${root}/api/invites`, { email }, params);
+    },
+    invitations: function(options, token) {
+      var query = buildQuery(options);
+      var params = {
+        headers: {
+          'Authorization': `BEARER ${token}`
+        }
+      };
+      return chakram.get(`${root}/api/invites${query}`, params);
     },
     removeInvite: function(email, token) {
       var params = {
@@ -94,3 +104,9 @@ module.exports = {
     }
   }
 };
+
+function buildQuery(queryParams) {
+  var query = queryString.stringify(queryParams);
+  if (query) { query = `?${query}`; }
+  return query;
+}
