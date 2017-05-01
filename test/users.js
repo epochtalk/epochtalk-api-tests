@@ -58,6 +58,16 @@ describe("User Invite", function() {
       .and.attr('href').which.contains.path('/join');
     });
   });
+  it("Does not send an email invitation again", function() {
+    return utils.sudo().then(function(response) {
+      var adminToken = response.body.token;
+      return users.invite(userInfo.email, adminToken);
+    })
+    .then(function(response) {
+      // check response
+      expect(response).to.have.status(422);
+    });
+  });
   after("Remove invitation", function() {
     return utils.sudo().then(function(response) {
       var adminToken = response.body.token;
