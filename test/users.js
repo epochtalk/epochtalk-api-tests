@@ -3,6 +3,7 @@ var Promise = require('bluebird');
 var utils = require(path.join(__dirname, '..', 'utils'));
 var config = require(path.join(__dirname, '..', 'config'));
 var chakram = require(path.join(__dirname, '..', 'chakram')), expect = chakram.expect;
+var _ = require('lodash');
 
 // Chai expectations
 var chai = require('chai');
@@ -17,6 +18,7 @@ var methods = require(path.join(__dirname, '..', 'methods'));
 var auth = methods.auth;
 var users = methods.users;
 var email = require(path.join(__dirname, '..', 'email'));
+var usersData = require(path.join(__dirname, 'data', 'users.json'));
 
 describe("User Invite", function() {
   var userInfo = {
@@ -152,6 +154,48 @@ describe("User Invitations List (Single invitation)", function() {
     return utils.sudo().then(function(response) {
       var adminToken = response.body.token;
       return users.removeInvite(userInfo.email, adminToken);
+    });
+  });
+});
+
+describe("User Invitations List (Multiple invitations)", function() {
+  // load 50 users from the sample data set
+  var userInfos = _.slice(usersData, 0, 50);
+
+  before("Create the invitations", function() {
+    return utils.sudo().then(function(response) {
+      var adminToken = response.body.token;
+      return Promise.map(userInfos, userInfo => { return users.invite(userInfo.email, adminToken); });
+    });
+  });
+  it("Returns the first page of invitations with defaults", function() {
+    return utils.sudo().then(function(response) {
+      var adminToken = response.body.token;
+      return users.invitations({}, adminToken);
+    })
+    .then(function(response) {
+      expect(response).to.have.status(200);
+
+      var body = response.body;
+      expect(body).to.have.all.keys([ 'page', 'limit', 'invitations', 'hasMore' ]);
+
+      var invitations = body.invitations;
+      expect(invitations).to.be.an('array').with.length(25);
+
+      var page = body.page;
+      expect(page).to.equal(1);
+
+      var limit = body.limit;
+      expect(limit).to.equal(25);
+
+      var hasMore = body.hasMore;
+      expect(hasMore).to.equal(true);
+    });
+  });
+  after("Remove invitations", function() {
+    return utils.sudo().then(function(response) {
+      var adminToken = response.body.token;
+      return Promise.map(userInfos, userInfo => { return users.removeInvite(userInfo.email, adminToken); });
     });
   });
 });
