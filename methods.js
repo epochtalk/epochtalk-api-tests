@@ -36,6 +36,21 @@ module.exports = {
     }
   },
   admin: {
+    legal: {
+      update: function(options, token) {
+        var data = {
+          tos: options.tos,
+          privacy: options.privacy,
+          disclaimer: options.disclaimer
+        };
+        var params = {
+          headers: {
+            'Authorization': `BEARER ${token}`
+          }
+        };
+        return chakram.put(`${root}/api/admin/legal`, data, params);
+      }
+    }
   },
   users: {
     invite: function(email, token) {
