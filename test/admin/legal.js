@@ -28,3 +28,27 @@ describe("Legal page text", function() {
     });
   });
 });
+
+describe("Legal page reset", function() {
+  it("should reset text for the legal page", function () {
+    return utils.sudo().then(function(response) {
+      var adminToken = response.body.token;
+      return legal.reset(adminToken);
+    })
+    .then(function(response) {
+      expect(response).to.have.status(200);
+
+      var legalText = response.body;
+      expect(legalText).to.have.all.keys(['tos', 'privacy', 'disclaimer']);
+
+      var tos = legalText.tos;
+      expect(tos).to.be.a('string');
+
+      var privacy = legalText.privacy;
+      expect(privacy).to.be.a('string');
+
+      var disclaimer = legalText.disclaimer;
+      expect(disclaimer).to.be.a('string');
+    });
+  });
+});
