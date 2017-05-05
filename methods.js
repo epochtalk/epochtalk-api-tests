@@ -35,6 +35,8 @@ module.exports = {
       return chakram.post(`${root}/api/login`, { username, password });
     }
   },
+  admin: {
+  },
   users: {
     invite: function(email, token) {
       var params = {
