@@ -93,4 +93,32 @@ describe("Legal page update", function() {
       expect(disclaimer).to.equal('undefined');
     });
   });
+  it("should update privacy for the legal page", function () {
+    var adminToken;
+    return utils.sudo().then(function(response) {
+      adminToken = response.body.token;
+      return legal.update({ privacy: testText.privacy }, adminToken);
+    })
+    .then(function(response) {
+      expect(response).to.have.status(200);
+      return legal.text(adminToken);
+    })
+    .then(function(response) {
+      expect(response).to.have.status(200);
+
+      var legalText = response.body;
+      expect(legalText).to.have.all.keys(['tos', 'privacy', 'disclaimer']);
+
+      var privacy = legalText.privacy;
+      expect(privacy).to.be.a('string')
+      .and.to.equal(testText.privacy);
+
+      // returns the string 'undefined' for undefined fields
+      var tos = legalText.tos;
+      expect(tos).to.equal('undefined');
+
+      var disclaimer = legalText.disclaimer;
+      expect(disclaimer).to.equal('undefined');
+    });
+  });
 });
