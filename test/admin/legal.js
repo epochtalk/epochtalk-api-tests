@@ -121,4 +121,32 @@ describe("Legal page update", function() {
       expect(disclaimer).to.equal('undefined');
     });
   });
+  it("should update disclaimer for the legal page", function () {
+    var adminToken;
+    return utils.sudo().then(function(response) {
+      adminToken = response.body.token;
+      return legal.update({ disclaimer: testText.disclaimer }, adminToken);
+    })
+    .then(function(response) {
+      expect(response).to.have.status(200);
+      return legal.text(adminToken);
+    })
+    .then(function(response) {
+      expect(response).to.have.status(200);
+
+      var legalText = response.body;
+      expect(legalText).to.have.all.keys(['tos', 'privacy', 'disclaimer']);
+
+      var disclaimer = legalText.disclaimer;
+      expect(disclaimer).to.be.a('string')
+      .and.to.equal(testText.disclaimer);
+
+      // returns the string 'undefined' for undefined fields
+      var tos = legalText.tos;
+      expect(tos).to.equal('undefined');
+
+      var privacy = legalText.privacy;
+      expect(privacy).to.equal('undefined');
+    });
+  });
 });
