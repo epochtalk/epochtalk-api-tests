@@ -37,6 +37,14 @@ module.exports = {
   },
   admin: {
     legal: {
+      text: function(token) {
+        var params = {
+          headers: {
+            'Authorization': `BEARER ${token}`
+          }
+        };
+        return chakram.get(`${root}/api/admin/legal`, params);
+      },
       update: function(options, token) {
         var data = {
           tos: options.tos,
