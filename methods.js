@@ -36,6 +36,16 @@ module.exports = {
     }
   },
   admin: {
+    settings: {
+      find: function(token) {
+        var params = {
+          headers: {
+            'Authorization': `BEARER ${token}`
+          }
+        };
+        return chakram.get(`${root}/api/admin/settings`, params);
+      }
+    },
     legal: {
       text: function(token) {
         var params = {
