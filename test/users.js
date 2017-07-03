@@ -95,7 +95,7 @@ describe("User Invitations List (No invitations)", function() {
       expect(response).to.have.status(200);
 
       var body = response.body;
-      expect(body).to.have.all.keys([ 'page', 'limit', 'invitations', 'hasMore' ]);
+      expect(body).to.have.all.keys([ 'page', 'limit', 'invitations', 'has_more' ]);
 
       var invitations = body.invitations;
       expect(invitations).to.be.an('array').with.length(0);
@@ -106,7 +106,7 @@ describe("User Invitations List (No invitations)", function() {
       var limit = body.limit;
       expect(limit).to.equal(25);
 
-      var hasMore = body.hasMore;
+      var hasMore = body.has_more;
       expect(hasMore).to.equal(false);
     });
   });
@@ -135,7 +135,7 @@ describe("User Invitations List (Single invitation)", function() {
       expect(response).to.have.status(200);
 
       var body = response.body;
-      expect(body).to.have.all.keys([ 'page', 'limit', 'invitations', 'hasMore' ]);
+      expect(body).to.have.all.keys([ 'page', 'limit', 'invitations', 'has_more' ]);
 
       var invitations = body.invitations;
       expect(invitations).to.be.an('array').with.length(1);
@@ -146,7 +146,7 @@ describe("User Invitations List (Single invitation)", function() {
       var limit = body.limit;
       expect(limit).to.equal(25);
 
-      var hasMore = body.hasMore;
+      var hasMore = body.has_more;
       expect(hasMore).to.equal(false);
     });
   });
@@ -177,7 +177,7 @@ describe("User Invitations List (Multiple invitations)", function() {
       expect(response).to.have.status(200);
 
       var body = response.body;
-      expect(body).to.have.all.keys([ 'page', 'limit', 'invitations', 'hasMore' ]);
+      expect(body).to.have.all.keys([ 'page', 'limit', 'invitations', 'has_more' ]);
 
       var invitations = body.invitations;
       expect(invitations).to.be.an('array').with.length(25);
@@ -188,7 +188,7 @@ describe("User Invitations List (Multiple invitations)", function() {
       var limit = body.limit;
       expect(limit).to.equal(25);
 
-      var hasMore = body.hasMore;
+      var hasMore = body.has_more;
       expect(hasMore).to.equal(true);
     });
   });
@@ -201,7 +201,7 @@ describe("User Invitations List (Multiple invitations)", function() {
       expect(response).to.have.status(200);
 
       var body = response.body;
-      expect(body).to.have.all.keys([ 'page', 'limit', 'invitations', 'hasMore' ]);
+      expect(body).to.have.all.keys([ 'page', 'limit', 'invitations', 'has_more' ]);
 
       var invitations = body.invitations;
       expect(invitations).to.be.an('array').with.length(25);
@@ -212,7 +212,7 @@ describe("User Invitations List (Multiple invitations)", function() {
       var limit = body.limit;
       expect(limit).to.equal(25);
 
-      var hasMore = body.hasMore;
+      var hasMore = body.has_more;
       expect(hasMore).to.equal(false);
     });
   });
