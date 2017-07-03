@@ -251,7 +251,6 @@ describe("User Find", function() {
         'avatar',
         'created_at',
         'id',
-        'malicious_score',
         'priority',
         'roles',
         'updated_at',
