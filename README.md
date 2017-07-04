@@ -14,6 +14,36 @@ cp example.env .env
 HOST=http://localhost:8080
 ```
 
+
+Epochtalk configuration
+-----------------------
+
+.env
+```
+...
+
+HOST=localhost
+PORT=8080
+PUBLIC_URL=http://localhost:8080
+
+...
+
+EMAILER_SENDER=e@ma.il
+EMAILER_OPTIONS_HOST=localhost
+EMAILER_OPTIONS_PORT=1025
+EMAILER_OPTIONS_IGNORE_TLS=true
+EMAILER_OPTIONS_SECURE=false
+
+...
+
+# Disable rate limiting for testing
+RATE_LIMITING_GET_INTERVAL=-1
+RATE_LIMITING_PUT_INTERVAL=-1
+RATE_LIMITING_POST_INTERVAL=-1
+RATE_LIMITING_DELETE_INTERVAL=-1
+```
+
+
 Running tests
 -------------
 
