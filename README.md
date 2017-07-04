@@ -55,6 +55,17 @@ Assumptions
 The tests assume that the server starts off clean, with just an admin account
 seeded.  Admin account should have password `password`
 
+Example:
+
+1. (Re)create the Postgres database
+
+2. Run migrations
+
+3. Create admin user `{ username: 'admin', password: 'password', ... }`
+
+4. Run tests
+
+
 Structure
 ---------
 
