@@ -61,9 +61,11 @@ Example:
 
 2. Run migrations
 
-3. Create admin user `{ username: 'admin', password: 'password', ... }`
+3. Start the epochtalk server to seed the admin role
 
-4. Run tests
+4. Create admin user `{ username: 'admin', password: 'password', ... }`
+
+5. Run tests
 
 
 Structure
