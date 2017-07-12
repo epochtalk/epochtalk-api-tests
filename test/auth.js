@@ -61,7 +61,6 @@ describe("Auth Login", function() {
         'username',
         'id',
         'avatar',
-        'malicious_score',
         'moderating',
         'permissions',
         'roles'

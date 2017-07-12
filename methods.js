@@ -128,7 +128,7 @@ module.exports = {
       return chakram.post(`${root}/api/boards`, data, params);
     },
     delete: function(options) {
-      var data = options.boards;
+      var data = { board_ids: options.boardIds };
       var params = {};
       if (options.adminToken) {
         params.headers = {

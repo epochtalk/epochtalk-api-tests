@@ -67,7 +67,9 @@ describe("Boards Creation", function() {
     return utils.sudo().then(function(response) {
       var options = {
         adminToken: response.body.token,
-        id: boardInfo.id
+        boardIds: [
+          boardInfo.id
+        ]
       };
       return boards.delete(options);
     });
@@ -102,7 +104,7 @@ describe("Boards Deletion", function() {
     return utils.sudo().then(function(response) {
       var options = {
         adminToken: response.body.token,
-        boards: [
+        boardIds: [
           boardInfo.id
         ]
       };
