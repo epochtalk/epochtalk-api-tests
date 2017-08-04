@@ -13,7 +13,8 @@ jobs:
       comand: |
         set -x
         docker-compose -f docker-compose-resources.yml up -d
-  test:
-    override: |
-      set -x
-      docker-compose -f docker-compose-test.yml up
+    - run:
+      name: run test
+      command:  |
+        set -x
+        docker-compose -f docker-compose-test.yml up
