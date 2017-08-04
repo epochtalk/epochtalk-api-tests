@@ -1,0 +1,54 @@
+version: '3'
+services:
+  epochtalk-api-tests:
+    build: .
+    ports:
+      - "1025:1025"
+    depends_on:
+      - epochtalk
+    links:
+      - epochtalk
+    environment:
+      HOST: http://epochtalk:8080
+  epochtalk:
+    image: https://quay.io/epochtalk/epochtalk:dockerfile-elixir
+    ports:
+      - "8080:8080"
+    depends_on:
+      - redis
+      - postgres
+      - epoch
+    links:
+      - redis
+      - postgres
+    env_file:
+      epochtalk.env
+  epochtalk-seed:
+    image: https://quay.io/epochtalk/epochtalk:dockerfile-elixir
+    depends_on:
+      - postgres
+    links:
+      - postgres
+    env_file:
+      epochtalk.env
+    command: sh -c "sleep 20 && node cli create-user admin admin@epochtalk.com --password password --admin"
+  epoch:
+    image: $AWS_ACCOUNT.dkr.ecr.$AWS_REGION.amazonaws.com/epoch:docker
+    depends_on:
+      - postgres
+    links:
+      - postgres
+    environment:
+      MIX_ENV: prod
+      DATABASE_USER: docker
+      DATABASE_PASSWORD: docker
+      DATABASE_NAME: epochtalk
+      DATABASE_HOST: postgres
+  redis:
+    image: redis:4.0.1
+    user: redis
+  postgres:
+    image: postgres:9.6.2
+    environment:
+      POSTGRES_USER: docker
+      POSTGRES_PASSWORD: docker
