@@ -11,7 +11,7 @@ services:
     environment:
       HOST: http://epochtalk:8080
   epochtalk:
-    image: https://quay.io/epochtalk/epochtalk:dockerfile-elixir
+    image: quay.io/epochtalk/epochtalk:dockerfile-elixir
     ports:
       - "8080:8080"
     depends_on:
@@ -24,7 +24,7 @@ services:
     env_file:
       epochtalk.env
   epochtalk-seed:
-    image: https://quay.io/epochtalk/epochtalk:dockerfile-elixir
+    image: quay.io/epochtalk/epochtalk:dockerfile-elixir
     depends_on:
       - postgres
     links:
