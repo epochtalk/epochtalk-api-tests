@@ -31,7 +31,7 @@ services:
       - postgres
     env_file:
       epochtalk.env
-    command: sh -c "sleep 20 && node cli create-user admin admin@epochtalk.com --password password --admin"
+    command: sh -c "until node cli create-user admin admin@epochtalk.com --password password --admin; do sleep 5; done"
   epoch:
     image: $AWS_ACCOUNT.dkr.ecr.$AWS_REGION.amazonaws.com/epoch:docker
     depends_on:
