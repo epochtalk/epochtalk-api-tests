@@ -1,7 +1,8 @@
 version: 2
-executorType: docker
 jobs:
   build:
+    docker:
+      - image: node:7.10.0
     steps:
       - checkout
 
