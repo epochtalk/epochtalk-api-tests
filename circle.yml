@@ -1,7 +1,7 @@
 version: 2
+executorType: docker
 jobs:
   build:
-    docker:
     steps:
       - checkout
 
