@@ -29,4 +29,4 @@ jobs:
           name: run test
           command: |
             set -eo pipefail
-            docker-compose -f docker-compose-resources.yml up epochtalk-api-tests
+            docker-compose -f docker-compose-resources.yml up --exit-code-from epochtalk-api-tests epochtalk-api-tests
