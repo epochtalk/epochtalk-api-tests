@@ -11,6 +11,7 @@ services:
     links:
       - redis
       - postgres
+      - epochtalk-api-tests
     environment:
       PRIVATE_KEY: privateprivateprivatekeyprivateprivateprivatekey
       DATABASE_URL: postgres://docker:docker@postgres:5432/epochtalk
