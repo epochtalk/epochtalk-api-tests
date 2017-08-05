@@ -15,18 +15,18 @@ jobs:
             curl -L https://github.com/docker/compose/releases/download/1.15.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
             chmod +x /usr/local/bin/docker-compose
 
-      # - run:
-      #     name: Start docker resources
-      #     command: |
-      #       set -e
-      #       docker-compose -f docker-compose-resources.yml up -d redis
-      #       docker-compose -f docker-compose-resources.yml up -d postgres
-      #       docker-compose -f docker-compose-resources.yml up -d epochtalk
-      #       docker-compose -f docker-compose-resources.yml up -d epochtalk-seed
-      #       docker-compose -f docker-compose-resources.yml up -d epoch
-      #
+      - run:
+          name: Start docker resources
+          command: |
+            set -e
+            docker-compose -f docker-compose-resources.yml up -d redis
+            docker-compose -f docker-compose-resources.yml up -d postgres
+            docker-compose -f docker-compose-resources.yml up -d epochtalk
+            docker-compose -f docker-compose-resources.yml up -d epochtalk-seed
+            docker-compose -f docker-compose-resources.yml up -d epoch
+
       - run:
           name: run test
           command: |
             set -e
-            docker-compose -f docker-compose-resources.yml up --exit-code-from epochtalk-api-tests
+            docker-compose -f docker-compose-resources.yml up epochtalk-api-tests
