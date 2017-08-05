@@ -9,5 +9,5 @@ RUN npm install && npm cache clean --force
 
 COPY . /usr/src/app
 
-CMD sleep 60 && npm run test
+CMD npm run test
 EXPOSE 1025
