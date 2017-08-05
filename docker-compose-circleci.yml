@@ -1,5 +1,15 @@
 version: '3'
 services:
+  epochtalk-api-tests:
+    build: .
+    ports:
+      - "1025:1025"
+    depends_on:
+      - epochtalk
+    links:
+      - epochtalk
+    environment:
+      HOST: http://epochtalk:8080
   epochtalk:
     image: quay.io/epochtalk/epochtalk:dockerfile-elixir
     ports:
@@ -76,13 +86,3 @@ services:
     environment:
       POSTGRES_USER: docker
       POSTGRES_PASSWORD: docker
-  epochtalk-api-tests:
-    build: .
-    ports:
-      - "1025:1025"
-    depends_on:
-      - epochtalk
-    links:
-      - epochtalk
-    environment:
-      HOST: http://epochtalk:8080
