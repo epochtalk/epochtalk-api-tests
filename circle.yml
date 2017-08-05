@@ -19,14 +19,14 @@ jobs:
           name: Start docker resources
           command: |
             set -e
-            docker-compose -f docker-compose-resources.yml up -d redis
-            docker-compose -f docker-compose-resources.yml up -d postgres
-            docker-compose -f docker-compose-resources.yml up -d epochtalk
-            docker-compose -f docker-compose-resources.yml up -d epochtalk-seed
-            docker-compose -f docker-compose-resources.yml up -d epoch
+            docker-compose -f docker-compose.yml up -d redis
+            docker-compose -f docker-compose.yml up -d postgres
+            docker-compose -f docker-compose.yml up -d epochtalk
+            docker-compose -f docker-compose.yml up -d epochtalk-seed
+            docker-compose -f docker-compose.yml up -d epoch
 
       - run:
           name: run test
           command: |
             set -eo pipefail
-            docker-compose -f docker-compose-resources.yml up --exit-code-from epochtalk-api-tests epochtalk-api-tests
+            docker-compose -f docker-compose.yml up --exit-code-from epochtalk-api-tests epochtalk-api-tests
