@@ -19,10 +19,14 @@ jobs:
           name: Start docker resources
           command: |
             set -x
-            docker-compose -f docker-compose-resources.yml up -d
+            docker-compose -f docker-compose-resources.yml up -d redis
+            docker-compose -f docker-compose-resources.yml up -d postgres
+            docker-compose -f docker-compose-resources.yml up -d epochtalk
+            docker-compose -f docker-compose-resources.yml up -d epochtalk_seed
+            docker-compose -f docker-compose-resources.yml up -d epoch
 
       - run:
           name: run test
           command: |
             set -x
-            docker-compose -f docker-compose-test.yml up
+            docker-compose -f docker-compose-resources.yml up epochtalk-api-tests
