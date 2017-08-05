@@ -2,6 +2,13 @@ Tentative run scheme
 ====================
 
 
+Running tests with docker-compose
+---------------------------------
+
+```
+docker-compose up
+```
+
 Configuration
 -------------
 
