@@ -28,5 +28,5 @@ jobs:
       - run:
           name: run test
           command: |
-            set -x
+            set -ex
             docker-compose -f docker-compose-resources.yml up epochtalk-api-tests
