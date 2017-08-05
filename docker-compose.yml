@@ -10,7 +10,7 @@ services:
       - epochtalk
     environment:
       HOST: http://epochtalk:8080
-    command: sh -c "./wait-for-it.sh http://epochtalk:8080 && npm run test"
+    command: sh -c "./wait-for-it.sh epochtalk:8080 -t 120 && sleep 5 && npm run test"
   epochtalk:
     image: quay.io/epochtalk/epochtalk:dockerfile-elixir
     ports:
