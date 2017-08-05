@@ -11,6 +11,7 @@ services:
     links:
       - redis
       - postgres
+    external_links:
       - epochtalk-api-tests
     environment:
       PRIVATE_KEY: privateprivateprivatekeyprivateprivateprivatekey
