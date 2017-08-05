@@ -63,6 +63,8 @@ services:
     links:
       - postgres
     environment:
+      AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+      AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
       MIX_ENV: prod
       DATABASE_USER: docker
       DATABASE_PASSWORD: docker
