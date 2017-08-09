@@ -12,7 +12,7 @@ services:
       HOST: http://epochtalk:8080
     command: sh -c "./wait-for-it.sh epochtalk:8080 -t 120 && sleep 5 && npm run test"
   epochtalk:
-    image: quay.io/epochtalk/epochtalk:dockerfile-elixir
+    image: quay.io/epochtalk/epochtalk:latest
     ports:
       - "8080:8080"
     depends_on:
@@ -42,7 +42,7 @@ services:
       RATE_LIMITING_POST_INTERVAL: -1
       RATE_LIMITING_DELETE_INTERVAL: -1
   epochtalk-seed:
-    image: quay.io/epochtalk/epochtalk:dockerfile-elixir
+    image: quay.io/epochtalk/epochtalk:latest
     depends_on:
       - postgres
     links:
@@ -68,7 +68,7 @@ services:
       RATE_LIMITING_DELETE_INTERVAL: -1
     command: sh -c "until node cli create-user admin admin@epochtalk.com --password password --admin; do sleep 5; done"
   epoch:
-    image: quay.io/epochtalk/epoch:docker
+    image: quay.io/epochtalk/epoch:latest
     depends_on:
       - postgres
     links:
