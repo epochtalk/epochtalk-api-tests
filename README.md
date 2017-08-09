@@ -25,6 +25,16 @@ epoch:
 ...
 ```
 
+If you have changes in `epochtalk/core-pg`, update
+`epochtalk/epochtalk/package.json` with the branch name.
+
+epochtalk/epochtalk/package.json
+```
+...
+  "epochtalk-core-pg": "epochtalk/core-pg#[your-branch]"
+...
+```
+
 Check [CircleCI](https://circleci.com/gh/epochtalk/epochtalk) for the
 results when you push to your branch.
 
