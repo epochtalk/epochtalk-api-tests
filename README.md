@@ -1,78 +1,111 @@
 Tentative run scheme
 ====================
 
+Testing on CircleCI
+-------------------
 
-Running tests with docker-compose
----------------------------------
+Create a new branch on `epochtalk/epochtalk` and update the
+`circleci-docker-compose.yml` images to use your branch's corresponding Quay
+build.
 
-```
-docker-compose up
-```
+** (Be sure to change the tags back when you merge with `master`.) **
 
-Configuration
--------------
-
-```
-cp example.env .env
-```
-
-.env
-```
-HOST=http://localhost:8080
-```
-
-
-Epochtalk configuration
------------------------
-
-.env
+ex:
 ```
 ...
 
-HOST=localhost
-PORT=8080
-PUBLIC_URL=http://localhost:8080
+epochtalk:
+  image: quay.io/epochtalk/epochtalk:[your-branch]
 
 ...
 
-EMAILER_SENDER=e@ma.il
-EMAILER_OPTIONS_HOST=localhost
-EMAILER_OPTIONS_PORT=1025
-EMAILER_OPTIONS_IGNORE_TLS=true
-EMAILER_OPTIONS_SECURE=false
+epoch:
+  image: quay.io/epochtalk/epoch:[your-branch]
 
 ...
-
-# Disable rate limiting for testing
-RATE_LIMITING_GET_INTERVAL=-1
-RATE_LIMITING_PUT_INTERVAL=-1
-RATE_LIMITING_POST_INTERVAL=-1
-RATE_LIMITING_DELETE_INTERVAL=-1
 ```
 
+Check [CircleCI](https://circleci.com/gh/epochtalk/epochtalk) for the
+results when you push to your branch.
 
-Running tests
--------------
 
-`npm test`
+Testing locally (from this repo)
+--------------------------------
 
-Assumptions
------------
+These instructions explain how to use `docker` to test locally.
 
-The tests assume that the server starts off clean, with just an admin account
-seeded.  Admin account should have password `password`
+If you would like to test manually, check out the other README file:
+[MANUAL_README.md](./MANUAL_README.md)
 
-Example:
+1. Use containers for the projects you are changing.
 
-1. (Re)create the Postgres database
+    ** If you are only testing api test changes, skip this step! **
 
-2. Run migrations
+    If you are testing changes in any of the dependencies, build them with
+    docker locally and specify the branch tag in `docker-compose.yml`.
 
-3. Start the epochtalk server to seed the admin role
+    It may be useful to build the container and tag it with your branch name.
 
-4. Create admin user `{ username: 'admin', password: 'password', ... }`
+    ex1: (testing an epochtalk/epochtalk branch)
 
-5. Run tests
+    /epochtalk/epochtalk
+    ```bash
+    docker build -t epochtalk:[your-branch] .
+    ```
+
+    /epochtalk/epochtalk-api-tests/docker-compose.yml
+    ```yaml
+    ...
+
+    epochtalk:
+      image: epochtalk:[your-branch]
+
+    ...
+
+    epochtalk_seed:
+      image: epochtalk:[your-branch]
+
+    ...
+    ```
+
+    ex2: (testing an epochtalk/epoch branch)
+
+    /epochtalk/epoch
+    ```bash
+    docker build -t epoch:[your-branch] .
+    ```
+
+    /epochtalk/epochtalk-api-tests/docker-compose.yml
+    ```yaml
+    ...
+
+    epoch:
+      image: epoch:[your-branch]
+
+    ...
+    ```
+
+2. Stop previous deployment
+
+    Stop and remove the old containers if you have run them previously.
+
+    ```
+    docker-compose down
+    ```
+
+3. Build the `docker-compose` image for the api tests.
+
+    ```
+    docker-compose build
+    ```
+
+4. Run the tests by bringing up the `docker-compose` cluster.
+
+    ```
+    docker-compose up
+    ```
+
+    This will run the tests and output the results to the console.
 
 
 Structure
