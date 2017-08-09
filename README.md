@@ -1,5 +1,5 @@
-Tentative run scheme
-====================
+EpochTalk API Tests
+===================
 
 Testing on CircleCI
 -------------------
