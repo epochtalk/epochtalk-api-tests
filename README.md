@@ -8,7 +8,7 @@ Create a new branch on `epochtalk/epochtalk` and update the
 `circleci-docker-compose.yml` images to use your branch's corresponding Quay
 build.
 
-** (Be sure to change the tags back when you merge with `master`.) **
+**(Be sure to change the tags back when you merge with `master`.)**
 
 ex:
 ```
@@ -39,7 +39,7 @@ If you would like to test manually, check out the other README file:
 
 1. Use containers for the projects you are changing.
 
-    ** If you are only testing api test changes, skip this step! **
+    **If you are only testing api test changes, skip this step!**
 
     If you are testing changes in any of the dependencies, build them with
     docker locally and specify the branch tag in `docker-compose.yml`.
