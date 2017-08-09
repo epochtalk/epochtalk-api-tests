@@ -1,8 +1,5 @@
-
-
-Running locally
----------------
-
+Manually running tests
+======================
 
 Configuration
 -------------
