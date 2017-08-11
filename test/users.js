@@ -207,7 +207,7 @@ describe("User Invitations List (Multiple invitations)", function() {
       expect(invitations).to.be.an('array').with.length(25);
 
       var page = body.page;
-      expect(page).to.equal(1);
+      expect(page).to.equal(2);
 
       var limit = body.limit;
       expect(limit).to.equal(25);
