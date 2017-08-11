@@ -24,7 +24,6 @@ describe("Settings find", function() {
         'login_required',
         'portal',
         'rate_limiting',
-        'saas_mode',
         'verify_registration',
         'website'
       ]);
