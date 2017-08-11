@@ -90,7 +90,7 @@ describe("Legal page update", function() {
       expect(privacy).to.equal('undefined');
 
       var disclaimer = legalText.disclaimer;
-      expect(disclaimer).to.equal('undefined');
+      expect(disclaimer).to.equal('');
     });
   });
   it("should update privacy for the legal page", function () {
@@ -118,7 +118,7 @@ describe("Legal page update", function() {
       expect(tos).to.equal('undefined');
 
       var disclaimer = legalText.disclaimer;
-      expect(disclaimer).to.equal('undefined');
+      expect(disclaimer).to.equal('');
     });
   });
   it("should update disclaimer for the legal page", function () {
