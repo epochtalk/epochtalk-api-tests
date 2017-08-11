@@ -14,8 +14,8 @@ describe("Settings find", function() {
     .then(function(response) {
       expect(response).to.have.status(200);
 
-      var legalText = response.body;
-      expect(legalText).to.have.all.keys([
+      var settings = response.body;
+      expect(settings).to.have.all.keys([
         'emailer',
         'ga_key',
         'images',
