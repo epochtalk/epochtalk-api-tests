@@ -12,7 +12,7 @@ services:
       HOST: http://epochtalk:8080
     command: sh -c "./wait-for-it.sh epochtalk:8080 -t 120 && sleep 5 && npm run test"
   epochtalk:
-    image: quay.io/epochtalk/epochtalk:update_node-pg
+    image: quay.io/epochtalk/epochtalk:latest
     ports:
       - "8080:8080"
     depends_on:
@@ -46,7 +46,7 @@ services:
       RATE_LIMITING_POST_INTERVAL: -1
       RATE_LIMITING_DELETE_INTERVAL: -1
   epochtalk-seed:
-    image: quay.io/epochtalk/epochtalk:update_node-pg
+    image: quay.io/epochtalk/epochtalk:latest
     depends_on:
       - postgres
     links:
