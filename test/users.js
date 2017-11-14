@@ -268,7 +268,7 @@ describe("User Find", function() {
       expect(response).to.have.property('body');
 
       var body = response.body;
-      expect(response.body).to.have.all.keys(['error', 'statusCode']);
+      expect(response.body).to.have.all.keys(['error', 'message', 'statusCode']);
 
       expect(body.statusCode).to.equal(404);
       expect(body.error).to.equal('Not Found');
@@ -281,7 +281,7 @@ describe("User Find", function() {
       expect(response).to.have.property('body');
 
       var body = response.body;
-      expect(response.body).to.have.all.keys(['error', 'statusCode']);
+      expect(response.body).to.have.all.keys(['error', 'message', 'statusCode']);
 
       expect(body.statusCode).to.equal(404);
       expect(body.error).to.equal('Not Found');
@@ -347,7 +347,7 @@ describe("User Delete", function() {
       expect(response).to.have.property('body');
 
       var body = response.body;
-      expect(response.body).to.have.all.keys(['error', 'statusCode']);
+      expect(response.body).to.have.all.keys(['error', 'message', 'statusCode']);
 
       expect(body.statusCode).to.equal(404);
       expect(body.error).to.equal('Not Found');
