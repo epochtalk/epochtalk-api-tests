@@ -251,6 +251,7 @@ describe("User Find", function() {
         'avatar',
         'created_at',
         'id',
+        'merit',
         'priority',
         'roles',
         'updated_at',
