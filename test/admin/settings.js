@@ -23,6 +23,7 @@ describe("Settings find", function() {
         'log_enabled',
         'login_required',
         'portal',
+        'post_max_length',
         'rate_limiting',
         'verify_registration',
         'website'
