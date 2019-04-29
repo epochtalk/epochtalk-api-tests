@@ -50,7 +50,12 @@ describe("Boards Creation", function() {
       expect(boards).to.have.length(1);
 
       var board = boards[0];
-      expect(board).to.have.all.keys(['id', 'name', 'description']);
+      expect(board).to.have.all.keys([
+        'id',
+        'name',
+        'description',
+        'right_to_left'
+      ]);
 
       var id = board.id;
       expect(id).to.be.slugid;
