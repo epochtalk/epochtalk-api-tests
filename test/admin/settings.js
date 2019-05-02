@@ -20,7 +20,6 @@ describe("Settings find", function() {
         'ga_key',
         'images',
         'invite_only',
-        'log_enabled',
         'login_required',
         'portal',
         'post_max_length',
