@@ -63,7 +63,8 @@ describe("Auth Login", function() {
         'avatar',
         'moderating',
         'permissions',
-        'roles'
+        'roles',
+        'malicious_score'
       ]);
 
       var token = body.token;

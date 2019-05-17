@@ -254,7 +254,8 @@ describe("User Find", function() {
         'priority',
         'roles',
         'updated_at',
-        'username'
+        'username',
+        'malicious_score'
       ]);
 
       var userId = body.id;
