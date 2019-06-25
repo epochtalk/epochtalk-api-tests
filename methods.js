@@ -43,7 +43,7 @@ module.exports = {
             'Authorization': `BEARER ${token}`
           }
         };
-        return chakram.get(`${root}/api/admin/settings`, params);
+        return chakram.get(`${root}/api/configurations`, params);
       }
     },
     legal: {
