@@ -43,7 +43,7 @@ module.exports = {
             'Authorization': `BEARER ${token}`
           }
         };
-        return chakram.get(`${root}/api/admin/settings`, params);
+        return chakram.get(`${root}/api/configurations`, params);
       }
     },
     legal: {
@@ -53,7 +53,7 @@ module.exports = {
             'Authorization': `BEARER ${token}`
           }
         };
-        return chakram.get(`${root}/api/admin/legal`, params);
+        return chakram.get(`${root}/api/legal`, params);
       },
       reset: function(token) {
         var params = {
@@ -61,7 +61,7 @@ module.exports = {
             'Authorization': `BEARER ${token}`
           }
         };
-        return chakram.post(`${root}/api/admin/legal/reset`, {}, params);
+        return chakram.post(`${root}/api/legal/reset`, {}, params);
       },
       update: function(options, token) {
         var data = {
@@ -74,7 +74,7 @@ module.exports = {
             'Authorization': `BEARER ${token}`
           }
         };
-        return chakram.put(`${root}/api/admin/legal`, data, params);
+        return chakram.put(`${root}/api/legal`, data, params);
       }
     }
   },
