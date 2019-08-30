@@ -24,6 +24,7 @@ describe("Settings find", function() {
         'portal',
         'post_max_length',
         'rate_limiting',
+        'revision',
         'verify_registration',
         'website'
       ]);
