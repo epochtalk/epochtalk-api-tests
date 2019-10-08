@@ -1,103 +1,103 @@
 [
   {
     "name": "driver",
-    "email": "driver@bypass.ram",
+    "email": "driver@bypass.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "microchip",
-    "email": "microchip@override.tcp",
+    "email": "microchip@override.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "transmitter",
-    "email": "transmitter@connect.xml",
+    "email": "transmitter@connect.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "driver",
-    "email": "driver@quantify.ib",
+    "email": "driver@quantify.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "feed",
-    "email": "feed@navigate.scsi",
+    "email": "feed@index.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "firewall",
-    "email": "firewall@generate.rss",
+    "email": "firewall@generate.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "bandwidth",
-    "email": "bandwidth@navigate.tcp",
+    "email": "bandwidth@navigate.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "port",
-    "email": "port@generate.adp",
+    "email": "port@generate.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "protocol",
-    "email": "protocol@generate.xml",
+    "email": "protocol@generate.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "bus",
-    "email": "bus@quantify.agp",
+    "email": "bus@quantify.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "card",
-    "email": "card@hack.agp",
+    "email": "card@hack.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "panel",
-    "email": "panel@transmit.ftp",
+    "email": "panel@transmit.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "capacitor",
-    "email": "capacitor@bypass.ib",
+    "email": "capacitor@bypass.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "bandwidth",
-    "email": "bandwidth@hack.sql",
+    "email": "bandwidth@hack.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "driver",
-    "email": "driver@index.jbod",
+    "email": "driver@index.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "interface",
-    "email": "interface@calculate.ftp",
+    "email": "interface@calculate.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "driver",
-    "email": "driver@index.ib",
+    "email": "driver@multiply.com",
     "password": "password",
     "confirmation": "password"
   },
@@ -109,151 +109,151 @@
   },
   {
     "name": "array",
-    "email": "array@copy.tcp",
+    "email": "array@copy.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "transmitter",
-    "email": "transmitter@program.png",
+    "email": "transmitter@program.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "driver",
-    "email": "driver@synthesize.sql",
+    "email": "driver@synthesize.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "firewall",
-    "email": "firewall@override.ib",
+    "email": "firewall@override.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "card",
-    "email": "card@reboot.ssl",
+    "email": "card@reboot.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "port",
-    "email": "port@calculate.thx",
+    "email": "port@calculate.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "port",
-    "email": "port@hack.sdd",
+    "email": "port@hack.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "monitor",
-    "email": "monitor@hack.gb",
+    "email": "monitor@hack.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "driver",
-    "email": "driver@navigate.http",
+    "email": "driver@navigate.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "transmitter",
-    "email": "transmitter@override.http",
+    "email": "transmitter@override.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "feed",
-    "email": "feed@navigate.hdd",
+    "email": "feed@navigate.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "pixel",
-    "email": "pixel@back-up.gb",
+    "email": "pixel@back-up.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "protocol",
-    "email": "protocol@transmit.http",
+    "email": "protocol@transmit.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "pixel",
-    "email": "pixel@generate.png",
+    "email": "pixel@generate.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "port",
-    "email": "port@index.rss",
+    "email": "port@index.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "sensor",
-    "email": "sensor@connect.pci",
+    "email": "sensor@connect.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "microchip",
-    "email": "microchip@hack.json",
+    "email": "microchip@hack.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "alarm",
-    "email": "alarm@generate.gb",
+    "email": "alarm@generate.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "panel",
-    "email": "panel@synthesize.ai",
+    "email": "panel@synthesize.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "card",
-    "email": "card@program.ib",
+    "email": "card@program.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "driver",
-    "email": "driver@override.ram",
+    "email": "driver@override.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "program",
-    "email": "program@navigate.rss",
+    "email": "program@navigate.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "pixel",
-    "email": "pixel@bypass.ssl",
+    "email": "pixel@bypass.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "microchip",
-    "email": "microchip@copy.hdd",
+    "email": "microchip@copy.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "alarm",
-    "email": "alarm@program.usb",
+    "email": "alarm@program.com",
     "password": "password",
     "confirmation": "password"
   },
@@ -265,223 +265,223 @@
   },
   {
     "name": "port",
-    "email": "port@program.ftp",
+    "email": "port@program.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "sensor",
-    "email": "sensor@transmit.jbod",
+    "email": "sensor@transmit.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "driver",
-    "email": "driver@input.png",
+    "email": "driver@input.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "program",
-    "email": "program@override.sas",
+    "email": "program@override.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "pixel",
-    "email": "pixel@back-up.hdd",
+    "email": "pixel@navigate.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "card",
-    "email": "card@program.ftp",
+    "email": "card@back-up.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "matrix",
-    "email": "matrix@generate.png",
+    "email": "matrix@generate.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "application",
-    "email": "application@compress.tcp",
+    "email": "application@compress.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "interface",
-    "email": "interface@quantify.smtp",
+    "email": "interface@quantify.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "system",
-    "email": "system@copy.xss",
+    "email": "system@copy.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "matrix",
-    "email": "matrix@override.gb",
+    "email": "matrix@override.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "matrix",
-    "email": "matrix@navigate.jbod",
+    "email": "matrix@navigate.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "alarm",
-    "email": "alarm@navigate.pci",
+    "email": "alarm@navigate.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "port",
-    "email": "port@compress.adp",
+    "email": "port@compress.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "card",
-    "email": "card@calculate.exe",
+    "email": "card@calculate.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "sensor",
-    "email": "sensor@transmit.rss",
+    "email": "sensor@transmit.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "transmitter",
-    "email": "transmitter@transmit.sql",
+    "email": "transmitter@transmit.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "pixel",
-    "email": "pixel@bypass.json",
+    "email": "pixel@bypass.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "driver",
-    "email": "driver@override.ssl",
+    "email": "driver@override.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "array",
-    "email": "array@reboot.hdd",
+    "email": "array@reboot.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "matrix",
-    "email": "matrix@synthesize.sql",
+    "email": "matrix@synthesize.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "port",
-    "email": "port@quantify.exe",
+    "email": "port@quantify.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "firewall",
-    "email": "firewall@input.jbod",
+    "email": "firewall@input.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "feed",
-    "email": "feed@synthesize.ftp",
+    "email": "feed@synthesize.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "panel",
-    "email": "panel@connect.jbod",
+    "email": "panel@connect.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "driver",
-    "email": "driver@reboot.ib",
+    "email": "driver@reboot.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "bus",
-    "email": "bus@index.exe",
+    "email": "bus@index.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "card",
-    "email": "card@override.exe",
+    "email": "card@override.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "port",
-    "email": "port@transmit.ai",
+    "email": "port@transmit.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "feed",
-    "email": "feed@calculate.jbod",
+    "email": "feed@calculate.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "protocol",
-    "email": "protocol@input.scsi",
+    "email": "protocol@input.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "bandwidth",
-    "email": "bandwidth@hack.thx",
+    "email": "bandwidth@hack.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "system",
-    "email": "system@parse.ram",
+    "email": "system@parse.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "panel",
-    "email": "panel@synthesize.agp",
+    "email": "panel@synthesize.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "firewall",
-    "email": "firewall@program.xml",
+    "email": "firewall@program.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "capacitor",
-    "email": "capacitor@index.sms",
+    "email": "capacitor@index.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "alarm",
-    "email": "alarm@compress.scsi",
+    "email": "alarm@compress.com",
     "password": "password",
     "confirmation": "password"
   },
@@ -493,7 +493,7 @@
   },
   {
     "name": "application",
-    "email": "application@index.xss",
+    "email": "application@index.com",
     "password": "password",
     "confirmation": "password"
   },
@@ -505,73 +505,73 @@
   },
   {
     "name": "firewall",
-    "email": "firewall@synthesize.pci",
+    "email": "firewall@synthesize.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "feed",
-    "email": "feed@generate.ssl",
+    "email": "feed@generate.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "matrix",
-    "email": "matrix@override.adp",
+    "email": "matrix@override.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "application",
-    "email": "application@index.rss",
+    "email": "application@index.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "sensor",
-    "email": "sensor@hack.tcp",
+    "email": "sensor@hack.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "port",
-    "email": "port@back-up.sas",
+    "email": "port@back-up.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "panel",
-    "email": "panel@connect.agp",
+    "email": "panel@connect.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "port",
-    "email": "port@program.css",
+    "email": "port@program.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "system",
-    "email": "system@input.tcp",
+    "email": "system@input.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "circuit",
-    "email": "circuit@hack.usb",
+    "email": "circuit@hack.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "capacitor",
-    "email": "capacitor@synthesize.usb",
+    "email": "capacitor@synthesize.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "array",
-    "email": "array@connect.jbod",
+    "email": "array@connect.com",
     "password": "password",
     "confirmation": "password"
   },
@@ -583,19 +583,19 @@
   },
   {
     "name": "program",
-    "email": "program@override.hdd",
+    "email": "program@override.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "matrix",
-    "email": "matrix@connect.xss",
+    "email": "matrix@connect.com",
     "password": "password",
     "confirmation": "password"
   },
   {
     "name": "application",
-    "email": "application@calculate.adp",
+    "email": "application@calculate.com",
     "password": "password",
     "confirmation": "password"
   }
