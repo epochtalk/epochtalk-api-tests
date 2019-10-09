@@ -28,6 +28,9 @@ describe("User Invite", function() {
     confirmation: 'password'
   };
 
+  before("start email server", function() {
+    return email.serverListen();
+  });
   it("Sends an email invitation", function() {
     return utils.sudo().then(function(response) {
       var adminToken = response.body.token;
@@ -353,5 +356,8 @@ describe("User Delete", function() {
       expect(body.statusCode).to.equal(404);
       expect(body.error).to.equal('Not Found');
     });
+  });
+  after("stop email server", function() {
+    return email.serverClose();
   });
 });
