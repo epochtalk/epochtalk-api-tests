@@ -1,18 +1,18 @@
 {
   "dependencies": {
-    "bluebird": "^3.5.0",
-    "chai": "^3.5.0",
+    "bluebird": "^3.7.0",
+    "chai": "^4.2.0",
     "chai-cheerio": "^1.0.0",
     "chai-url": "^1.0.4",
     "chakram": "^1.5.0",
-    "cheerio": "^0.22.0",
-    "dotenv": "^4.0.0",
+    "cheerio": "^1.0.0-rc.3",
+    "dotenv": "^8.1.0",
     "lodash": "^4.17.4",
-    "maildev": "^0.14.0",
-    "mocha": "^3.2.0",
-    "query-string": "^4.3.4",
-    "slugid": "^1.1.0",
-    "uuid-validate": "0.0.2"
+    "maildev": "^1.1.0",
+    "mocha": "^6.2.1",
+    "query-string": "^6.8.3",
+    "slugid": "^2.0.0",
+    "uuid-validate": "0.0.3"
   },
   "name": "epochtalk-api-tests",
   "version": "1.0.0",
