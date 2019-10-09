@@ -46,7 +46,7 @@ RATE_LIMITING_DELETE_INTERVAL=-1
 Running tests
 -------------
 
-`npm test`
+`yarn run test`
 
 ### Assumptions
 
