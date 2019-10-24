@@ -18,3 +18,10 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+  release:
+    docker:
+      - image: circleci/node:10.16.0
+    steps:
+      - checkout
+      - run: yarn install
+      - run: npx semantic-release
