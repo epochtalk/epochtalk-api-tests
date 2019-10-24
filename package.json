@@ -26,6 +26,9 @@
   "directories": {
     "test": "test"
   },
+  "release": {
+    "plugins": ["@semantic-release/commit-analyzer","@semantic-release/release-notes-generator","@semantic-release/github"]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/epochtalk/epochtalk-api-tests.git"
