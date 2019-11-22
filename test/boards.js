@@ -53,6 +53,7 @@ describe("Boards Creation", function() {
       expect(board).to.have.all.keys([
         'id',
         'name',
+        'meta',
         'description',
         'right_to_left'
       ]);
