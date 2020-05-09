@@ -253,6 +253,8 @@ describe("User Find", function() {
         'id',
         'priority',
         'roles',
+        'role_name',
+        'role_highlight_color',
         'updated_at',
         'username'
       ]);
