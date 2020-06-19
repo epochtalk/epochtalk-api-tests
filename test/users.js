@@ -254,6 +254,7 @@ describe("User Find", function() {
         'avatar',
         'created_at',
         'id',
+        'metadata',
         'priority',
         'role_name',
         'role_highlight_color',
