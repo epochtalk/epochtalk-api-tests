@@ -26,6 +26,7 @@ var boards = methods.boards;
 describe("Boards Creation", function() {
   var boardInfo = {
     name: 'Are you Board?',
+    slug: 'are-you-board',
     description: 'A board for bored people'
   };
   it("should create a board", function () {
@@ -35,6 +36,7 @@ describe("Boards Creation", function() {
         boards: [
           {
             name: boardInfo.name,
+            slug: boardInfo.slug,
             description: boardInfo.description,
             viewable_by: boardInfo.viewable_by,
             postable_by: boardInfo.postable_by,
@@ -53,6 +55,7 @@ describe("Boards Creation", function() {
       expect(board).to.have.all.keys([
         'id',
         'name',
+        'slug',
         'meta',
         'description',
         'right_to_left'
@@ -64,6 +67,9 @@ describe("Boards Creation", function() {
 
       var name = board.name;
       expect(name).to.equal(boardInfo.name);
+
+      var slug = board.slug;
+      expect(slug).to.equal(boardInfo.slug);
 
       var description = board.description;
       expect(description).to.equal(boardInfo.description);
@@ -85,6 +91,7 @@ describe("Boards Creation", function() {
 describe("Boards Deletion", function() {
   var boardInfo = {
     name: 'Are you Board?',
+    slug: 'are-you-board',
     description: 'A board for bored people'
   };
   before("create the board to delete", function() {
@@ -94,6 +101,7 @@ describe("Boards Deletion", function() {
         boards: [
           {
             name: boardInfo.name,
+            slug: boardInfo.slug,
             description: boardInfo.description,
             viewable_by: boardInfo.viewable_by,
             postable_by: boardInfo.postable_by,
