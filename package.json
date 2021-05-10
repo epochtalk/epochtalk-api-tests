@@ -7,7 +7,7 @@
     "chakram": "^1.5.0",
     "cheerio": "^1.0.0-rc.3",
     "dotenv": "^8.1.0",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "maildev": "^1.1.0",
     "mocha": "^6.2.1",
     "query-string": "^6.8.3",
